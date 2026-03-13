@@ -1,266 +1,1785 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Network Engineering Portfolio - Showcasing expertise in network design, implementation, and security">
-    <title>Network Engineer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan Von Vogler — Senior Network Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── VARIABLES ───────────────────────────────────────────────────────── */
+    :root {
+      --bg:        #080d1a;
+      --bg2:       #0d1425;
+      --bg3:       #111c30;
+      --border:    rgba(0, 212, 255, 0.12);
+      --blue:      #00d4ff;
+      --blue-dim:  #0099bb;
+      --gold:      #f0b429;
+      --text:      #c8d8e8;
+      --text-dim:  #7a90a8;
+      --white:     #e8f0f8;
+      --red:       #ff4757;
+      --green:     #2ecc71;
+    }
+
+    /* ─── RESET ───────────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ─── GRID BACKGROUND ─────────────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(8,13,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+
+    /* ─── SECTIONS ────────────────────────────────────────────────────────── */
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── HERO ────────────────────────────────────────────────────────────── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 2.5rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--blue);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+    h1.hero-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.6rem, 5.5vw, 5.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.35s;
+    }
+    h1.hero-name .accent { color: var(--blue); }
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 400;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      margin-top: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.5s;
+    }
+    .hero-title strong { color: var(--gold); font-weight: 600; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.65s;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+    }
+    .hero-meta-item .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+    .hero-meta-item .dot.gold { background: var(--gold); }
+    .hero-meta-item .dot.green { background: var(--green); }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.8s;
+    }
+    .btn {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.6rem;
+      border: 1px solid;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--bg);
+    }
+    .btn-primary:hover { background: transparent; color: var(--blue); }
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text-dim);
+    }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ─── SECTION COMMON ──────────────────────────────────────────────────── */
+    .section-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+    }
+    .section-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .section-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 3rem;
+    }
+    .section-heading span { color: var(--blue); }
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────────────────────────── */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    .stat-box {
+      background: var(--bg3);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 2.8rem;
+      color: var(--blue);
+      line-height: 1;
+      display: block;
+    }
+    .stat-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+      display: block;
+    }
+
+    /* ─── MINDSET ─────────────────────────────────────────────────────────── */
+    #mindset { background: var(--bg3); }
+    .mindset-body {
+      max-width: 780px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .mindset-body p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text);
+    }
+    .mindset-body em {
+      color: var(--gold);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    /* ─── SKILLS ──────────────────────────────────────────────────────────── */
+    #skills { background: var(--bg); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-3px);
+    }
+    .skill-card-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .skill-card-title::before {
+      content: '//';
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--blue);
+      font-size: 0.8rem;
+    }
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .skill-list li {
+      font-size: 0.88rem;
+      color: var(--text);
+      padding-left: 0.8rem;
+      position: relative;
+    }
+    .skill-list li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    /* ─── EXPERIENCE ──────────────────────────────────────────────────────── */
+    #experience { background: var(--bg2); }
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .exp-item {
+      background: var(--bg3);
+      border-left: 3px solid transparent;
+      padding: 1.8rem 2rem;
+      transition: border-color 0.2s;
+      cursor: default;
+    }
+    .exp-item:hover { border-left-color: var(--blue); }
+    .exp-item.active { border-left-color: var(--gold); }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+    .exp-role {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+    }
+    .exp-dates {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--blue);
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+    .exp-company {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+    .exp-company strong { color: var(--gold); font-weight: 600; }
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .exp-bullets li {
+      font-size: 0.9rem;
+      color: var(--text);
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .exp-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 0.7rem;
+      top: 0.35em;
+    }
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: var(--blue);
+      background: rgba(0,212,255,0.07);
+      border: 1px solid rgba(0,212,255,0.2);
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* ─── PROJECTS ────────────────────────────────────────────────────────── */
+    #projects { background: var(--bg); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
+    }
+    .project-num {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--blue);
+      letter-spacing: 0.15em;
+    }
+    .project-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+      letter-spacing: 0.03em;
+    }
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    /* ─── CERTIFICATIONS ──────────────────────────────────────────────────── */
+    #certifications { background: var(--bg2); }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+    }
+    .cert-item {
+      background: var(--bg3);
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: background 0.2s;
+    }
+    .cert-item:hover { background: var(--bg); }
+    .cert-icon {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--blue);
+      background: rgba(0,212,255,0.08);
+      border: 1px solid rgba(0,212,255,0.2);
+      padding: 0.3rem 0.5rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .cert-icon.gold-badge {
+      color: var(--gold);
+      background: rgba(240,180,41,0.08);
+      border-color: rgba(240,180,41,0.25);
+    }
+    .cert-icon.progress {
+      color: var(--text-dim);
+      background: rgba(122,144,168,0.08);
+      border-color: rgba(122,144,168,0.2);
+    }
+    .cert-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .cert-meta {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--text-dim);
+      margin-top: 0.3rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── CLEARANCE BANNER ────────────────────────────────────────────────── */
+    .clearance-banner {
+      background: rgba(0, 212, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .clearance-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--blue);
+      text-transform: uppercase;
+    }
+    .clearance-value {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    .clearance-sep {
+      width: 1px;
+      height: 30px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────────────────────────── */
+    #contact { background: var(--bg); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-left {}
+    .contact-left p {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 1.4rem;
+    }
+    .contact-direct {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      margin-top: 1.8rem;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .contact-link:hover {
+      border-color: var(--blue);
+      background: rgba(0,212,255,0.04);
+    }
+    .contact-link-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--blue);
+      text-transform: uppercase;
+      min-width: 55px;
+    }
+    .contact-link-value {
+      font-size: 0.88rem;
+      color: var(--white);
+    }
+
+    /* form */
+    .contact-form-wrap {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .form-title::before {
+      content: '//';
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--blue);
+      font-size: 0.8rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .form-group input,
+    .form-group textarea {
+      background: var(--bg2);
+      border: 1px solid rgba(0,212,255,0.12);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.92rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+      resize: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 2px rgba(0,212,255,0.08);
+    }
+    .form-group textarea { min-height: 110px; }
+
+    /* submit button */
+    .btn-submit {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      background: var(--blue);
+      border: 1px solid var(--blue);
+      color: var(--bg);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-submit:hover:not(:disabled) {
+      background: transparent;
+      color: var(--blue);
+    }
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    .btn-submit .spinner {
+      width: 14px; height: 14px;
+      border: 2px solid currentColor;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+    .btn-submit.loading .spinner { display: block; }
+    .btn-submit.loading .btn-label { opacity: 0.5; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* success overlay */
+    .form-success {
+      position: absolute;
+      inset: 0;
+      background: var(--bg3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      padding: 2rem;
+      text-align: center;
+    }
+    .form-success.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .success-icon {
+      width: 52px; height: 52px;
+      border: 2px solid var(--blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .success-icon::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,212,255,0.2);
+      animation: pulse-ring 1.8s ease-out infinite;
+    }
+    @keyframes pulse-ring {
+      0%   { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    .success-check {
+      width: 22px; height: 22px;
+      stroke: var(--blue);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-dasharray: 30;
+      stroke-dashoffset: 30;
+      transition: stroke-dashoffset 0.5s ease 0.3s;
+    }
+    .form-success.show .success-check { stroke-dashoffset: 0; }
+    .success-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+    .success-msg {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 320px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────────────────────── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SCROLL REVEAL ───────────────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal-left.visible { opacity: 1; transform: none; }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal-right.visible { opacity: 1; transform: none; }
+
+    /* staggered children */
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1);
+    }
+    .stagger-children.visible > *:nth-child(1)  { transition-delay: 0.05s; }
+    .stagger-children.visible > *:nth-child(2)  { transition-delay: 0.12s; }
+    .stagger-children.visible > *:nth-child(3)  { transition-delay: 0.19s; }
+    .stagger-children.visible > *:nth-child(4)  { transition-delay: 0.26s; }
+    .stagger-children.visible > *:nth-child(5)  { transition-delay: 0.33s; }
+    .stagger-children.visible > *:nth-child(6)  { transition-delay: 0.40s; }
+    .stagger-children.visible > *:nth-child(7)  { transition-delay: 0.47s; }
+    .stagger-children.visible > *:nth-child(8)  { transition-delay: 0.54s; }
+    .stagger-children.visible > *:nth-child(9)  { transition-delay: 0.61s; }
+    .stagger-children.visible > *:nth-child(10) { transition-delay: 0.68s; }
+    .stagger-children.visible > *:nth-child(11) { transition-delay: 0.75s; }
+    .stagger-children.visible > *:nth-child(12) { transition-delay: 0.82s; }
+    .stagger-children.visible > * { opacity: 1; transform: none; }
+
+    /* ─── TYPEWRITER CURSOR ───────────────────────────────────────────────── */
+    .typewriter-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--blue);
+      margin-left: 3px;
+      vertical-align: text-bottom;
+      animation: blink 0.9s step-end infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0; }
+    }
+
+    /* ─── SECTION LABEL ANIMATE ───────────────────────────────────────────── */
+    .section-label {
+      overflow: hidden;
+    }
+    .section-label span {
+      display: inline-block;
+      transform: translateY(100%);
+      transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    .section-label.label-visible span {
+      transform: translateY(0);
+    }
+
+    /* ─── SCAN LINE ON HERO ───────────────────────────────────────────────── */
+    #home::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(0,212,255,0.25), transparent);
+      animation: scan 6s linear infinite;
+      pointer-events: none;
+      z-index: 2;
+    }
+    @keyframes scan {
+      0%   { top: 0%; }
+      100% { top: 100%; }
+    }
+
+    /* ─── NAV ACTIVE ──────────────────────────────────────────────────────── */
+    .nav-links a.active { color: var(--blue); }
+    .nav-links a::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    /* ─── STAT COUNTER ────────────────────────────────────────────────────── */
+    .stat-num { transition: color 0.3s; }
+
+    /* ─── CARD TILT ───────────────────────────────────────────────────────── */
+    .skill-card, .project-card {
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    /* ─── EXP ITEM HOVER LINE ─────────────────────────────────────────────── */
+    .exp-item {
+      position: relative;
+      overflow: hidden;
+    }
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--blue);
+      transition: height 0.4s cubic-bezier(0.22,1,0.36,1);
+    }
+    .exp-item:hover::before { height: 100%; }
+    .exp-item.active::before {
+      height: 100%;
+      background: var(--gold);
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { display: none; }
+      .section-wrap { padding: 3.5rem 1.2rem; }
+      #home { padding: 5rem 1.2rem 3rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .hero-cta { flex-direction: column; align-items: flex-start; }
+      .clearance-banner { flex-direction: column; gap: 0.8rem; }
+      .clearance-sep { display: none; }
+      .exp-header { flex-direction: column; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <header>
-        <nav class="container">
-            <h1>Juan Von Voger</h1>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h2>Senior Network Engineer & Marine Veteran</h2>
-            <p>Designing, implementing, and managing secure enterprise-level network infrastructures across DOD environments</p>
-            <a href="#contact" class="btn">Get In Touch</a>
+  <!-- NAV -->
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#mindset">Mindset</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#home" class="nav-logo">JVV<span>.</span></a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-tag">// Senior Network Engineer &amp; Marine Corps Veteran</div>
+    <h1 class="hero-name">
+      JUAN<br>
+      VON <span class="accent">VOGLER</span>
+    </h1>
+    <div class="hero-title">
+      CCNP Enterprise &nbsp;·&nbsp;
+      <strong>Active Top Secret Clearance</strong> &nbsp;·&nbsp;
+      <span id="typewriter"></span><span class="typewriter-cursor"></span>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="dot green"></span>
+        <span>Woodbridge, VA</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="dot gold"></span>
+        <span>TekSynap / DLA — JETS Contract</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="dot"></span>
+        <span>TS/SSBI Initiated Jun 2025</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Get In Touch</a>
+      <a href="#experience" class="btn btn-outline">View Experience</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-wrap">
+      <div class="section-label"><span>// 01 — About</span></div>
+      <h2 class="section-heading reveal">Who I <span>Am</span></h2>
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <p>
+            Senior Network Engineer with 6+ years of progressive DoD enterprise experience
+            designing, implementing, and troubleshooting complex infrastructure across
+            classified and unclassified environments. Currently supporting the Defense
+            Logistics Agency (DLA) via TekSynap on the JETS Task Order, providing
+            Tier 3 engineering across IOEE network infrastructure.
+          </p>
+          <p>
+            My work spans Cisco ACI/APIC, DMVPN/IPSec, ISE/802.1x/TACACS+, VoIP/CUCM,
+            Oracle SBC, and network automation via Ansible and OpenText NA. I've led
+            enterprise VLAN standardization across distributed DoD sites, ISE authentication
+            migration, GitHub-based DevSecOps toolchain buildout, and STIG compliance
+            automation on active production systems.
+          </p>
+          <p>
+            U.S. Marine Corps veteran (2/5 Marines, Camp Pendleton). In my final two years
+            of service, I developed a passion for computer networking, security, and systems
+            hacking. Starting with Cisco Packet Tracer, building my own labs, learning to
+            code, and solving real operational problems. I assisted my unit with process and
+            SOP reform and worked directly with our career planner to streamline his
+            scheduling workflow using Calendly, one of the most innovative scheduling tools
+            of that era. That was the spark. After five years of active duty as a Rifleman
+            and Security Force Guard, I transitioned to IT in 2020 and haven't looked back.
+            Pursuing my B.S. in Cyber Security at UMGC, with the CCIE in my sights.
+          </p>
         </div>
-    </section>
+        <div class="about-stats reveal-right stagger-children">
+          <div class="stat-box">
+            <span class="stat-num">6+</span>
+            <span class="stat-label">Years DoD Engineering</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">9</span>
+            <span class="stat-label">Active Certifications</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">TS</span>
+            <span class="stat-label">Clearance / SSBI</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">5yr</span>
+            <span class="stat-label">USMC Service</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>
-                    Dynamic and results-driven Senior Network Engineer and Marine Veteran with over 7 years of experience
-                    designing, implementing, and managing secure, enterprise-level network infrastructures across DOD
-                    environments. Proven success leading WAN operations, cloud integrations, and multi-vendor environments
-                    with Cisco, Juniper, and Check Point.
-                </p>
-                <p style="margin-top: 1rem;">
-                    Deep knowledge of DISA STIG compliance, change management, and modern tools like Ansible, SolarWinds,
-                    OpenText NA, and nGenius. Active TS clearance, CCNP certified, and pursuing a B.S. in Network Engineering
-                    and Security at the University of Maryland (Expected April 2026).
-                </p>
-                <p style="margin-top: 1rem;">
-                    On the side, I develop web applications and websites, combining my networking expertise with modern
-                    web development technologies.
-                </p>
+  <!-- MINDSET -->
+  <section id="mindset">
+    <div class="section-wrap">
+      <div class="section-label"><span>// 02 — The Operator's Mindset</span></div>
+      <h2 class="section-heading reveal">How I <span>Operate</span></h2>
+      <div class="mindset-body stagger-children">
+        <p>
+          I've been obsessed with growth since I was 14. Self-help books, systems thinking,
+          finding ways to optimize. It's just how I'm wired. I have a systematic way of
+          approaching problems, and I'm always looking for ways to add more to my plate by
+          making what's already there run leaner. That drive is what led me to join arguably
+          the hardest branch of the military. My recruiter told me I had the IQ for Intel or
+          Communications. I chose the infantry anyway, because I wanted the challenge. I wanted
+          to test my grit, build my resilience, and prove something to myself. Looking back,
+          that decision shaped everything that came after it.
+        </p>
+        <p>
+          During my time in the Corps, I competed as a men's physique bodybuilder. The sport
+          wasn't just about aesthetics. It was about discipline, structure, and competing with
+          yourself every single day. It was a natural extension of everything I was already doing:
+          showing up, pushing past what I thought I was capable of, and never settling for average.
+        </p>
+        <p>
+          Toward the end of my service, I picked up <a href="https://www.amazon.com/Mindset-Psychology-Carol-S-Dweck/dp/0345472322" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(240,180,41,0.4);padding-bottom:1px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(240,180,41,0.4)'"><em>Mindset: The New Psychology of Success</em></a>
+          by Carol Dweck. One idea landed hard: we are only as capable as the time and effort
+          we've invested in a given domain. That realization sent me toward something I knew
+          nothing about, coding and computer systems. No background, no roadmap. Just
+          a decision to keep hammering. I built labs, followed YouTube tutorials, pieced together
+          concepts, and fell in love with networking and systems architecture. By the time I
+          separated from the Marine Corps, I had already laid the foundation for the career
+          I was about to build.
+        </p>
+        <p>
+          The military gave me discipline. Bodybuilding gave me structure. The growth mindset
+          gave me permission to be a beginner at something hard and stay in it anyway.
+          That combination is what I bring to every project, every ticket, and every new
+          technology I encounter. I'm not just chasing titles or certifications. I'm a
+          student of this domain, and I plan to stay one. The deeper I go, the more
+          there is to learn, and that's exactly what keeps me excited for whatever comes next.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-wrap">
+      <div class="section-label"><span>// 03 — Technical Skills</span></div>
+      <h2 class="section-heading reveal">Core <span>Competencies</span></h2>
+      <div class="skills-grid stagger-children">
+        <div class="skill-card">
+          <div class="skill-card-title">Routing &amp; Switching</div>
+          <ul class="skill-list">
+            <li>BGP, OSPF, EIGRP, STP</li>
+            <li>Cisco Catalyst, Nexus, UCS</li>
+            <li>VLAN / 802.1Q / VPC / LACP</li>
+            <li>MPLS / WAN Architecture</li>
+            <li>Layer 2 &amp; 3 Troubleshooting</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">Data Center &amp; DC Fabric</div>
+          <ul class="skill-list">
+            <li>Cisco ACI / APIC / NDO</li>
+            <li>Tenant, EPG, BD Provisioning</li>
+            <li>VMware vSphere / vCenter</li>
+            <li>Multi-pod Troubleshooting</li>
+            <li>Cisco UCS Fabric Interconnect</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">VPN &amp; Tunneling</div>
+          <ul class="skill-list">
+            <li>DMVPN (Phase 1/2/3)</li>
+            <li>IPSec / IKEv1 / IKEv2</li>
+            <li>GRE / mGRE / NHRP</li>
+            <li>Crypto Map &amp; Tunnel Protection</li>
+            <li>SatCom / StarShield Integration</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">Identity &amp; Security</div>
+          <ul class="skill-list">
+            <li>Cisco ISE / 802.1x / TACACS+</li>
+            <li>RADIUS Authentication</li>
+            <li>Check Point Firewall (CCSA)</li>
+            <li>Cisco ASA / ACLs / NAT</li>
+            <li>DISA STIG / DoD Compliance</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">Unified Communications</div>
+          <ul class="skill-list">
+            <li>Cisco CUCM / Dial Plan</li>
+            <li>Oracle SBC (Acme Packet 3900/4600)</li>
+            <li>SIP Trunking / TLS/SRTP</li>
+            <li>VoIP QoS &amp; CAC Policies</li>
+            <li>RightFax / Fax-over-IP</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">Automation &amp; DevSecOps</div>
+          <ul class="skill-list">
+            <li>Ansible / OpenText Network Automation</li>
+            <li>GitHub Enterprise / Version Control</li>
+            <li>Python / PowerShell Scripting</li>
+            <li>Jira + ServiceNow Integration</li>
+            <li>STIG CKL Automation</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">Monitoring &amp; Analysis</div>
+          <ul class="skill-list">
+            <li>nGenius Packet Analysis</li>
+            <li>SolarWinds</li>
+            <li>Wireshark / PCAP Analysis</li>
+            <li>ServiceNow Ticketing</li>
+            <li>EVE-NG / GNS3 Lab Simulation</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">Cloud &amp; Emerging</div>
+          <ul class="skill-list">
+            <li>Microsoft Azure (AZ-900 in progress)</li>
+            <li>AWS Environments</li>
+            <li>PostgreSQL / pgvector / AI/ML Pipelines</li>
+            <li>Python RAG / LLM Integration</li>
+            <li>Zero Trust Architecture</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-wrap">
+      <div class="section-label"><span>// 04 — Experience</span></div>
+      <h2 class="section-heading reveal">Career <span>History</span></h2>
+      <div class="exp-list stagger-children">
+
+        <!-- TekSynap / DLA -->
+        <div class="exp-item active">
+          <div class="exp-header">
+            <div class="exp-role">Senior Network Engineer — Telecommunications</div>
+            <div class="exp-dates">JUN 2025 — PRESENT</div>
+          </div>
+          <div class="exp-company"><strong>TekSynap</strong> — Defense Logistics Agency (DLA), JETS Task Order | Hybrid, Fairfax VA</div>
+          <ul class="exp-bullets">
+            <li>Led enterprise VLAN standardization across distributed DoD remote sites using Cisco ACI and APIC; architected migration from VLAN 6 to VLAN 2504/DNS-Raptor, authored SOPs adopted as the team standard, and conducted live walkthroughs for the engineering team.</li>
+            <li>Conducting Tier 3 DMVPN/IPSec troubleshooting on SatCom (StarShield/DoD Starlink) forward-deployed sites; performing config delta analysis across NHRP registrations, IKEv2 SA states, SIP ALG, NAT, and QoS to resolve CUCM phone registration failure on Unit 6 vs. Unit 10 baseline.</li>
+            <li>Architecting ISE/TACACS+ migration to replace RSA key-based SSH authentication across DLA devices — enabling centralized identity management and downstream Ansible automation at scale.</li>
+            <li>Engineering Ansible automation workflows through OpenText Network Automation (NA), collaborating cross-functionally to validate playbooks against live DLA LAN infrastructure.</li>
+            <li>Founded DLA's GitHub Enterprise Configuration Review Repository — designed branch/repo structure for network configuration version control as part of the DevSecOps Tools initiative.</li>
+            <li>Driving Jira + ServiceNow integration project to unify the DevSecOps toolchain; managing stakeholder coordination and implementation milestones across engineering and operations.</li>
+            <li>Automated STIG compliance reporting using PowerShell to parse and evaluate 100+ CKL files, reducing manual audit time and improving deliverable accuracy.</li>
+            <li>Configured Oracle SBC (Acme Packet 3900) SIP trunk parameters for RightFax migrations; supporting Okinawa IOEE site relocation to Fort Buckner with WAN circuit coordination.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">ACI/APIC</span><span class="tag">DMVPN/IPSec</span>
+            <span class="tag">ISE/TACACS+</span><span class="tag">Ansible</span>
+            <span class="tag">OpenText NA</span><span class="tag">GitHub Enterprise</span>
+            <span class="tag">CUCM</span><span class="tag">Oracle SBC</span>
+            <span class="tag">STIG/PowerShell</span><span class="tag">ServiceNow/Jira</span>
+          </div>
+        </div>
+
+        <!-- Leidos UC -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Unified Communications Design Engineer</div>
+            <div class="exp-dates">2024 — JUN 2025</div>
+          </div>
+          <div class="exp-company"><strong>Leidos</strong> — DoD Enterprise UC Infrastructure | Remote</div>
+          <ul class="exp-bullets">
+            <li>Designed and implemented enterprise UC infrastructure across DoD environments — Cisco CUCM call routing, SIP trunk architecture, and endpoint provisioning at multi-site scale.</li>
+            <li>Configured Oracle Session Border Controllers (Acme Packet 3900/4600) for classified and unclassified deployments; managed codec negotiation, TLS/SRTP, CAC policies, and geographic redundancy.</li>
+            <li>Led VoIP migration projects and RightFax server integrations with zero-downtime production cutovers across multi-site DoD environments.</li>
+            <li>Aligned UC infrastructure with DoD STIG and Zero Trust requirements; collaborated with network and security teams across media, signaling, and management planes.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">Cisco CUCM</span><span class="tag">Oracle SBC</span>
+            <span class="tag">SIP/TLS/SRTP</span><span class="tag">VoIP Migration</span>
+            <span class="tag">STIG</span><span class="tag">Zero Trust</span>
+          </div>
+        </div>
+
+        <!-- Leidos Sr NE -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Senior Network Engineer</div>
+            <div class="exp-dates">2021 — 2024</div>
+          </div>
+          <div class="exp-company"><strong>Leidos</strong> — DoD Enterprise Network Infrastructure | Remote / On-Site</div>
+          <ul class="exp-bullets">
+            <li>Provided Tier 3 engineering support spanning hundreds of DoD locations — BGP, OSPF, EIGRP, MPLS, DMVPN, RSTP, VPC, LACP at enterprise scale.</li>
+            <li>Engineered and maintained DMVPN hub-and-spoke architectures connecting forward-deployed and CONUS DoD sites; managed NHRP, mGRE, IKEv2/IPSec, and crypto policies in production.</li>
+            <li>Administered Cisco ACI/APIC data center fabrics — tenant provisioning, EPG/BD policy, contract management, and multi-pod troubleshooting.</li>
+            <li>Managed Cisco ISE for 802.1x NAC across wired and wireless enterprise segments; maintained RADIUS/TACACS+ policies, certificate profiles, and posture compliance rules.</li>
+            <li>Administered VMware vSphere/vCenter environments; managed virtual switching, vMotion, and physical-to-virtual integration for mission-critical workloads.</li>
+            <li>Maintained Check Point and Cisco ASA firewall policies — rule base audits, NAT, and IPS tuning per DoD security standards.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">DMVPN/IPSec</span><span class="tag">BGP/OSPF/EIGRP</span>
+            <span class="tag">ACI/APIC</span><span class="tag">ISE/802.1x</span>
+            <span class="tag">VMware</span><span class="tag">Check Point/ASA</span>
+            <span class="tag">Cisco UCS</span><span class="tag">MPLS</span>
+          </div>
+        </div>
+
+        <!-- Perspecta -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">IT Service Desk Analyst</div>
+            <div class="exp-dates">2019 — 2021</div>
+          </div>
+          <div class="exp-company"><strong>Perspecta (DXC Technology)</strong> — DoD Enterprise IT Support | On-Site</div>
+          <ul class="exp-bullets">
+            <li>Provided Tier 1/2 IT support for DoD users — network connectivity, VPN, Active Directory; managed tickets via ServiceNow. Foundation for progression to network engineering.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">ServiceNow</span><span class="tag">Active Directory</span><span class="tag">VPN</span>
+          </div>
+        </div>
+
+        <!-- USMC -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Rifleman / Marine Security Force Guard</div>
+            <div class="exp-dates">2014 — 2019</div>
+          </div>
+          <div class="exp-company"><strong>United States Marine Corps</strong> — 2nd Battalion, 5th Marines (2/5), 1st MarDiv | Camp Pendleton, CA &amp; Kings Bay, GA</div>
+          <ul class="exp-bullets">
+            <li>Served 5 years active duty as MOS 0311 Rifleman and Marine Security Force Guard; completed IT/helpdesk support role in final assignment. Honorably discharged September 2019.</li>
+            <li>Good Conduct Medal, GWOT Service Medal, Sharpshooter Rifle, Marksman Pistol. Security Force Training (M4Y, Jun 2015).</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">MOS 0311</span><span class="tag">Security Force</span>
+            <span class="tag">DoD Operations</span><span class="tag">Honorable Discharge</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-wrap">
+      <div class="section-label"><span>// 05 — Personal Projects</span></div>
+      <h2 class="section-heading reveal">Lab &amp; <span>Builds</span></h2>
+      <div class="projects-grid stagger-children">
+
+        <div class="project-card">
+          <div class="project-num">PROJECT 1</div>
+          <div class="project-title">EVE-NG Network Automation Lab</div>
+          <div class="project-desc">
+            Production-grade EVE-NG topology mirroring a DoD network environment — Cisco ISE, Active Directory/DNS,
+            Ansible control node, RADIUS/NTP server, and Cisco routers/switches. Used to develop and validate
+            Ansible playbooks, TACACS+ authentication workflows, and routing changes prior to DLA production deployment.
+          </div>
+          <div class="exp-tags">
+            <span class="tag">EVE-NG</span><span class="tag">Ansible</span>
+            <span class="tag">ISE/TACACS+</span><span class="tag">Cisco IOS</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">PROJECT 2</div>
+          <div class="project-title">AI Second Brain (PostgreSQL / pgvector)</div>
+          <div class="project-desc">
+            Personal AI assistant backed by PostgreSQL with pgvector (Supabase), Voyage AI embeddings, and a
+            custom MCP server integrated with Claude Desktop. Supports semantic memory retrieval,
+            multi-calendar management, project tracking, and workflow automation across personal and
+            professional life. Secondary retrieval pipeline built on ChromaDB and OpenAI embeddings.
+          </div>
+          <div class="exp-tags">
+            <span class="tag">PostgreSQL/pgvector</span><span class="tag">Python</span>
+            <span class="tag">Supabase</span><span class="tag">Voyage AI</span>
+            <span class="tag">MCP Server</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">PROJECT 3</div>
+          <div class="project-title">Multi-Agent AI Operating System</div>
+          <div class="project-desc">
+            Modular multi-agent AI system built on an Obsidian knowledge vault, with specialized agents for
+            email triage, calendar management, and workflow automation. Flask dashboard in development for
+            orchestration and control. Directly applies LLM, API integration, and automation skills relevant
+            to DevSecOps toolchain development.
+          </div>
+          <div class="exp-tags">
+            <span class="tag">Python</span><span class="tag">Flask</span>
+            <span class="tag">Obsidian/RAG</span><span class="tag">Multi-Agent</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">PROJECT 4</div>
+          <div class="project-title">STIG PowerShell Automation Engine</div>
+          <div class="project-desc">
+            PowerShell automation pipeline to parse and evaluate 100+ DoD STIG CKL (Checklist) files,
+            producing compliance reports that previously required days of manual review. Deployed in
+            production at DLA — reduced audit time significantly and improved accuracy of security
+            compliance deliverables.
+          </div>
+          <div class="exp-tags">
+            <span class="tag">PowerShell</span><span class="tag">DISA STIG</span>
+            <span class="tag">CKL Parsing</span><span class="tag">DoD Compliance</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">PROJECT 5</div>
+          <div class="project-title">Custom Web Builds — Multi-Client</div>
+          <div class="project-desc">
+            Designed and deployed custom websites for multiple businesses, each with a
+            different technical stack based on the client's specific use case:<br><br>
+            <strong style="color:var(--gold)"><a href="https://pep-tek.com/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(240,180,41,0.35);padding-bottom:1px;">PepTek LLC</a></strong> — Research-grade peptide
+            e-commerce store built on Shopify with custom theme development, age verification
+            gate, legal disclaimer integration, and Bankful payment processing API integration
+            for high-risk merchant compliance.<br><br>
+            <strong style="color:var(--gold)"><a href="https://web.archive.org/web/*/jbexclusivebarberla.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(240,180,41,0.35);padding-bottom:1px;">JBExclusive Studios</a></strong> <span style="font-family:'Share Tech Mono',monospace;font-size:0.62rem;color:var(--text-dim);letter-spacing:0.05em;">[SITE OFFLINE]</span> — Full barbershop
+            booking platform with online appointment scheduling, service catalog, and client
+            management. Built on WIX with custom CSS; managed domain, DNS, and hosting.<br><br>
+            <strong style="color:var(--gold)"><a href="https://divine-assisted-care.com/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(240,180,41,0.35);padding-bottom:1px;">Divine Assisted Care LLC</a></strong> — Professional
+            services site for an in-home mental health nursing practice. Built with a custom
+            intake/inquiry form, backend form handling, HIPAA-conscious data collection design,
+            and full server and hosting management post-launch.
+          </div>
+          <div class="exp-tags">
+            <span class="tag">Shopify/Liquid</span><span class="tag">API Integration</span>
+            <span class="tag">Payment Systems</span><span class="tag">Custom Backend</span>
+            <span class="tag">DNS/Hosting</span><span class="tag">WIX</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">PROJECT 6</div>
+          <div class="project-title">Python Network Automation Framework</div>
+          <div class="project-desc">
+            Building Python-based network automation scripts and tools integrating with Ansible and REST APIs
+            to streamline device management, compliance checks, and configuration auditing. Goal is to combine
+            network engineering expertise with modern scripting for enterprise-scale automation workflows.
+          </div>
+          <div class="exp-tags">
+            <span class="tag">Python</span><span class="tag">Ansible</span>
+            <span class="tag">REST APIs</span><span class="tag">Netmiko</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="section-wrap">
+      <div class="section-label"><span>// 06 — Credentials</span></div>
+      <h2 class="section-heading reveal">Certifications &amp; <span>Education</span></h2>
+
+      <div class="certs-grid stagger-children">
+        <div class="cert-item">
+          <div class="cert-icon">CCNP</div>
+          <div>
+            <div class="cert-name">Cisco CCNP Enterprise</div>
+            <div class="cert-meta">Active — Jun 2025 → Jun 2028</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">CORE</div>
+          <div>
+            <div class="cert-name">Cisco Specialist: Enterprise Core</div>
+            <div class="cert-meta">Active — Sep 2024 → Sep 2027</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">ADV</div>
+          <div>
+            <div class="cert-name">Cisco Specialist: Enterprise Advanced Infra</div>
+            <div class="cert-meta">Active — Jun 2025 → Jun 2028</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">CCNA</div>
+          <div>
+            <div class="cert-name">Cisco CCNA</div>
+            <div class="cert-meta">Active — Sep 2021 → Sep 2027 | ID: CSCO14048202</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">CASP+</div>
+          <div>
+            <div class="cert-name">CompTIA SecurityX (CASP+) CAS-004</div>
+            <div class="cert-meta">Active — Oct 2024 → Oct 2027</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">A+</div>
+          <div>
+            <div class="cert-name">CompTIA A+ CE</div>
+            <div class="cert-meta">Active — Oct 2024 → Oct 2027</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">CCSA</div>
+          <div>
+            <div class="cert-name">Check Point CCSA R81</div>
+            <div class="cert-meta">Active — Jul 2025 → Jul 2027</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">ITIL</div>
+          <div>
+            <div class="cert-name">ITIL Foundation v4</div>
+            <div class="cert-meta">Issued Feb 2020</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">DCSA</div>
+          <div>
+            <div class="cert-name">Derivative Classification — DCSA</div>
+            <div class="cert-meta">Issued Oct 2025</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon progress">AZ-900</div>
+          <div>
+            <div class="cert-name">Microsoft Azure AZ-900</div>
+            <div class="cert-meta">In Progress</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon progress">CCIE</div>
+          <div>
+            <div class="cert-name">CCIE Enterprise Infrastructure</div>
+            <div class="cert-meta">In Progress — Active Study Track</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon gold-badge">B.S.</div>
+          <div>
+            <div class="cert-name">B.S. Cyber Security — UMGC</div>
+            <div class="cert-meta">Expected Aug 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearance-banner">
+        <div>
+          <div class="clearance-label">Clearance Level</div>
+          <div class="clearance-value">ACTIVE TOP SECRET</div>
+        </div>
+        <div class="clearance-sep"></div>
+        <div>
+          <div class="clearance-label">TS Status</div>
+          <div class="clearance-value">SSBI INITIATED — Jun 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-wrap">
+      <div class="section-label"><span>// 07 — Contact</span></div>
+      <h2 class="section-heading reveal">Get In <span>Touch</span></h2>
+      <div class="contact-inner">
+
+        <!-- LEFT: copy + direct links -->
+        <div class="contact-left reveal-left">
+          <p>
+            Open to senior network engineering, DoD infrastructure modernization, and
+            DevSecOps opportunities. If you need a sharp eye on your network or a team
+            to solve what's been sitting in your backlog, let's talk.
+          </p>
+          <p style="padding: 1.2rem 1.4rem; background: rgba(0,212,255,0.04); border-left: 3px solid var(--blue); font-size:0.92rem;">
+            <strong style="color:var(--white); display:block; margin-bottom:0.4rem; font-family:'Barlow Condensed',sans-serif; font-size:0.95rem; letter-spacing:0.06em; text-transform:uppercase;">Need an Expert Eye on Your Network?</strong>
+            Infrastructure modernization, AI and automation strategy, or a stubborn problem
+            that's been circulating your engineering team with no end in sight — my team
+            provides in-depth analysis, tool recommendations, and hands-on consulting
+            tailored to your environment.
+          </p>
+          <div class="contact-direct">
+            <a href="mailto:juanmvonvogler@gmail.com" class="contact-link">
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">juanmvonvogler@gmail.com</span>
+            </a>
+            <a href="tel:5712052907" class="contact-link">
+              <span class="contact-link-label">Phone</span>
+              <span class="contact-link-value">(571) 205-2907</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT: contact form -->
+        <div class="contact-form-wrap reveal-right">
+          <div class="form-title">Send a Message</div>
+
+          <!--
+            ┌─────────────────────────────────────────────────────────┐
+            │  FORMSPREE SETUP (one-time, ~2 minutes):                │
+            │  1. Go to https://formspree.io and create a free acct   │
+            │  2. Click "New Form" → set email to juanmvonvogler@...  │
+            │  3. Copy your Form ID (looks like: xwkgabcd)            │
+            │  4. Replace YOUR_FORM_ID below with that ID             │
+            └─────────────────────────────────────────────────────────┘
+          -->
+          <form id="contact-form" action="https://formspree.io/f/mqeybwzd" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name">Full Name</label>
+                <input id="cf-name" type="text" name="name" placeholder="John Smith" required />
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email Address</label>
+                <input id="cf-email" type="email" name="email" placeholder="john@company.com" required />
+              </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Routing & Switching</h3>
-                    <ul>
-                        <li>OSPF, BGP, EIGRP, SD-WAN</li>
-                        <li>Cisco Catalyst & Nexus</li>
-                        <li>Juniper EX Series</li>
-                        <li>VLAN Management</li>
-                        <li>Layer 2 & 3 Troubleshooting</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Network Security</h3>
-                    <ul>
-                        <li>Check Point Firewalls (CCSA)</li>
-                        <li>Cisco ASA & ACLs</li>
-                        <li>F5 Load Balancing</li>
-                        <li>802.1x & Radius Auth</li>
-                        <li>DISA STIG Compliance</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Monitoring & Automation</h3>
-                    <ul>
-                        <li>Ansible Automation</li>
-                        <li>SolarWinds & nGenius</li>
-                        <li>OpenText NA</li>
-                        <li>Python Scripting</li>
-                        <li>Forescout NAC</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Cloud & Management</h3>
-                    <ul>
-                        <li>Azure & AWS Environments</li>
-                        <li>ServiceNow & Remedy</li>
-                        <li>Cisco CUCM & VoIP</li>
-                        <li>VMware & Wireshark</li>
-                        <li>Web Development</li>
-                    </ul>
-                </div>
+            <div class="form-group">
+              <label for="cf-phone">Phone Number</label>
+              <input id="cf-phone" type="tel" name="phone" placeholder="(555) 000-0000" />
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>Projects & Experience</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-card-content">
-                        <h3>DLA WAN Infrastructure Management</h3>
-                        <p>
-                            Currently managing the DLA WAN infrastructure as part of the core WAN team at Teksynap/GDIT.
-                            Coordinate with DISA, DLA HQ, and vendors to implement changes, upgrades, and deployments.
-                            Leading execution of scheduled outages and change requests through ServiceNow.
-                        </p>
-                        <p style="margin-top: 1rem; color: #666;">
-                            <strong>Technologies:</strong> Ansible, SolarWinds, OpenText NA, nGenius, Check Point, Cisco, Juniper
-                        </p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-card-content">
-                        <h3>SD-WAN Migration Project (In Progress)</h3>
-                        <p>
-                            Currently leading the migration of legacy WAN infrastructure to a modern SD-WAN solution.
-                            Implementing next-generation routing protocols and optimizing network performance while
-                            ensuring minimal disruption to operations and maintaining DISA STIG compliance.
-                        </p>
-                        <p style="margin-top: 1rem; color: #666;">
-                            <strong>Technologies:</strong> SD-WAN, Cisco, BGP, OSPF, Cloud Integration
-                        </p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-card-content">
-                        <h3>Python Network Automation Framework</h3>
-                        <p>
-                            Developing Python scripts and automation frameworks to streamline network configuration
-                            management, device monitoring, and compliance verification. Integrating with existing
-                            tools to reduce manual intervention and improve operational efficiency.
-                        </p>
-                        <p style="margin-top: 1rem; color: #666;">
-                            <strong>Technologies:</strong> Python, Ansible, REST APIs, Network Automation
-                        </p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-card-content">
-                        <h3>Enterprise Unified Communications Design</h3>
-                        <p>
-                            Designed and implemented enterprise-level UC solutions at Leidos, including VoIP, video
-                            conferencing, and collaboration tools. Engineered scalable architectures using Cisco CUCM
-                            and managed migrations from legacy systems with minimal operational disruption.
-                        </p>
-                        <p style="margin-top: 1rem; color: #666;">
-                            <strong>Technologies:</strong> Cisco CUCM, VoIP, SIP Trunking, QoS, Microsoft Teams
-                        </p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-card-content">
-                        <h3>Hybrid Cloud Security Architecture</h3>
-                        <p>
-                            Supporting hybrid cloud environments in Azure and AWS, managing routing protocols and
-                            security policies. Configured Check Point firewalls, Cisco router ACLs, and F5 appliances
-                            for secure, optimized network performance across cloud and on-premises infrastructure.
-                        </p>
-                        <p style="margin-top: 1rem; color: #666;">
-                            <strong>Technologies:</strong> Azure, AWS, Check Point, F5, ACLs, Cloud Security
-                        </p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-card-content">
-                        <h3>Web Development Portfolio</h3>
-                        <p>
-                            Developing web applications and websites as a side project, combining networking
-                            expertise with modern web technologies. Creating responsive, user-friendly interfaces
-                            and full-stack solutions for various use cases.
-                        </p>
-                        <p style="margin-top: 1rem; color: #666;">
-                            <strong>Technologies:</strong> HTML, CSS, JavaScript, Web Development Frameworks
-                        </p>
-                    </div>
-                </div>
+            <div class="form-group">
+              <label for="cf-message">What are you looking for?</label>
+              <textarea id="cf-message" name="message" placeholder="Brief description of your project, challenge, or opportunity..." required></textarea>
             </div>
-        </div>
-    </section>
+            <button type="submit" class="btn-submit" id="submit-btn">
+              <span class="spinner"></span>
+              <span class="btn-label">Send Message</span>
+            </button>
+          </form>
 
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <div class="container">
-            <h2>Certifications & Education</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <h3>CCNP Enterprise</h3>
-                    <p>Cisco Certified Network Professional (2024)</p>
-                </div>
-                <div class="cert-card">
-                    <h3>CCNA</h3>
-                    <p>Cisco Certified Network Associate (2021)</p>
-                </div>
-                <div class="cert-card">
-                    <h3>CCSA</h3>
-                    <p>Check Point Certified Security Administrator (2025)</p>
-                </div>
-                <div class="cert-card">
-                    <h3>CompTIA CASP+</h3>
-                    <p>Advanced Security Practitioner (2024)</p>
-                </div>
-                <div class="cert-card">
-                    <h3>CompTIA Security+</h3>
-                    <p>Security Certification (2020)</p>
-                </div>
-                <div class="cert-card">
-                    <h3>Azure Fundamentals</h3>
-                    <p>Microsoft Azure Certification (2025)</p>
-                </div>
-                <div class="cert-card">
-                    <h3>ITIL v4 Foundation</h3>
-                    <p>IT Service Management (2020)</p>
-                </div>
-                <div class="cert-card">
-                    <h3>CompTIA A+</h3>
-                    <p>IT Fundamentals (2022)</p>
-                </div>
-                <div class="cert-card">
-                    <h3>B.S. Network Engineering</h3>
-                    <p>University of Maryland (Expected April 2026)</p>
-                </div>
+          <!-- Success overlay -->
+          <div class="form-success" id="form-success">
+            <div class="success-icon">
+              <svg class="success-check" viewBox="0 0 24 24">
+                <polyline points="4,12 9,17 20,6"></polyline>
+              </svg>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-content">
-                <p>
-                    I'm always interested in discussing new opportunities, network engineering projects,
-                    or collaboration on innovative solutions. Feel free to reach out!
-                </p>
-                <div class="contact-links">
-                    <a href="mailto:juanmvonvogler@gmail.com">Email</a>
-                    <a href="tel:571-205-2907">Phone</a>
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-                </div>
+            <div class="success-title">Message Received</div>
+            <div class="success-msg">
+              Thanks for reaching out. I'll review your message and get back to you as soon as possible — usually within 24 hours.
             </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Juan Von Vogler. All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="script.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 JUAN VON VOGLER — ALL RIGHTS RESERVED</span>
+    <span>CCNP ENTERPRISE &nbsp;·&nbsp; ACTIVE SECRET &nbsp;·&nbsp; WOODBRIDGE VA</span>
+  </footer>
+  <script>
+  /* ═══════════════════════════════════════════════════════
+     CONTACT FORM — Formspree AJAX
+  ═══════════════════════════════════════════════════════ */
+  (function() {
+    const form    = document.getElementById('contact-form');
+    const btn     = document.getElementById('submit-btn');
+    const success = document.getElementById('form-success');
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // loading state
+      btn.disabled = true;
+      btn.classList.add('loading');
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          // show success overlay with animation
+          success.classList.add('show');
+          form.reset();
+        } else {
+          throw new Error('Server error');
+        }
+      } catch(err) {
+        btn.disabled = false;
+        btn.classList.remove('loading');
+        alert('Something went wrong. Please email directly at juanmvonvogler@gmail.com');
+      }
+    });
+  })();
+
+  /* ═══════════════════════════════════════════════════════
+     TYPEWRITER
+  ═══════════════════════════════════════════════════════ */
+  (function() {
+    const el = document.getElementById('typewriter');
+    if (!el) return;
+    const phrases = [
+      'DoD Enterprise Infrastructure',
+      'Network Automation Engineer',
+      'DMVPN / IPSec / ACI Specialist',
+      'DevSecOps & Automation Lead',
+      'CCNP — CCIE in Progress'
+    ];
+    let pi = 0, ci = 0, deleting = false, wait = 0;
+
+    function tick() {
+      const phrase = phrases[pi];
+      if (!deleting) {
+        el.textContent = phrase.slice(0, ++ci);
+        if (ci === phrase.length) { deleting = true; wait = 60; }
+      } else {
+        if (--wait > 0) { setTimeout(tick, 16); return; }
+        el.textContent = phrase.slice(0, --ci);
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; wait = 0; }
+      }
+      setTimeout(tick, deleting ? 28 : 55);
+    }
+    setTimeout(tick, 1400);
+  })();
+
+  /* ═══════════════════════════════════════════════════════
+     SCROLL REVEAL — IntersectionObserver
+  ═══════════════════════════════════════════════════════ */
+  (function() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // don't unobserve stagger parents so re-entry re-triggers
+          if (!e.target.classList.contains('stagger-children')) {
+            io.unobserve(e.target);
+          }
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children')
+      .forEach(el => io.observe(el));
+  })();
+
+  /* ═══════════════════════════════════════════════════════
+     SECTION LABEL SLIDE-IN
+  ═══════════════════════════════════════════════════════ */
+  (function() {
+    const labelIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('label-visible');
+          labelIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.section-label').forEach(el => labelIO.observe(el));
+  })();
+
+  /* ═══════════════════════════════════════════════════════
+     ANIMATED STAT COUNTERS
+  ═══════════════════════════════════════════════════════ */
+  (function() {
+    const statIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const raw = el.textContent.trim();
+        const num = parseFloat(raw);
+        if (isNaN(num)) return; // skip text-only like "TS"
+        const suffix = raw.replace(String(num), '');
+        const duration = 1200;
+        const start = performance.now();
+        function step(now) {
+          const t = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - t, 3);
+          el.textContent = (Math.round(ease * num * 10) / 10) + suffix;
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        statIO.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-num').forEach(el => statIO.observe(el));
+  })();
+
+  /* ═══════════════════════════════════════════════════════
+     3D CARD TILT ON HOVER
+  ═══════════════════════════════════════════════════════ */
+  (function() {
+    document.querySelectorAll('.skill-card, .project-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width  - 0.5;
+        const y = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  })();
+
+  /* ═══════════════════════════════════════════════════════
+     ACTIVE NAV HIGHLIGHT ON SCROLL
+  ═══════════════════════════════════════════════════════ */
+  (function() {
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.nav-links a');
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => io.observe(s));
+  })();
+
+  /* ═══════════════════════════════════════════════════════
+     NAV SCROLL SHADOW
+  ═══════════════════════════════════════════════════════ */
+  (function() {
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 10
+        ? '0 2px 24px rgba(0,0,0,0.5)'
+        : 'none';
+    }, { passive: true });
+  })();
+  </script>
+
 </body>
 </html>
