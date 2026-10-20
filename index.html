@@ -21,7 +21,7 @@
         <li><a href="#capabilities" data-tab="capabilities">Capabilities</a></li>
         <li><a href="#projects" data-tab="projects">Projects</a></li>
         <li><a href="#who" data-tab="who">Who I Am</a></li>
-        <li><a href="#track-record" data-tab="track-record">Track Record</a></li>
+        <li><a href="#track-record" data-tab="track-record">My Journey</a></li>
         <li><a href="#certifications" data-tab="certifications">Credentials</a></li>
         <li><a href="#contact" data-tab="contact">Contact</a></li>
       </ul>
@@ -56,14 +56,14 @@
     <div class="wrap">
       <header class="sec-head rise"><h2 class="headline">Bring me the problem.</h2><p class="headline-sub">I'll bring the plan, the build, and the cutover.</p></header>
       <div class="steps swoosh-l">
-        <div class="step has-peek">
+        <div tabindex="0" role="button" aria-expanded="false" class="step has-peek">
           <img src="assets/step-discover.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a requirements checklist beside a small network sketch" />
           <div class="step-body">
             <h3>Discover</h3>
             <p>I start with the people who own the problem, then translate what they need into a design.</p>
           </div>
-            <button class="peek-btn" type="button" aria-expanded="false" aria-label="How that looks: Discover"></button>
-            <div class="peek">
+            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
+            <div class="peek" role="region" aria-label="How that looks: Discover">
               <h4>How that looks</h4>
               <ul>
               <li>Site surveys and discovery sessions with customers and site POCs</li>
@@ -72,14 +72,14 @@
               </ul>
             </div>
         </div>
-        <div class="step has-peek">
+        <div tabindex="0" role="button" aria-expanded="false" class="step has-peek">
           <img src="assets/step-build.jpg" width="1024" height="688" loading="lazy" alt="Illustration of lab network appliances connected to a validated check mark" />
           <div class="step-body">
             <h3>Build</h3>
             <p>Designs get proven in a lab and automated before they touch production.</p>
           </div>
-            <button class="peek-btn" type="button" aria-expanded="false" aria-label="How that looks: Build"></button>
-            <div class="peek">
+            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
+            <div class="peek" role="region" aria-label="How that looks: Build">
               <h4>How that looks</h4>
               <ul>
               <li>An EVE-NG lab that mirrors the production topology</li>
@@ -88,14 +88,14 @@
               </ul>
             </div>
         </div>
-        <div class="step has-peek">
+        <div tabindex="0" role="button" aria-expanded="false" class="step has-peek">
           <img src="assets/step-deliver.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a cutover runbook with every step complete and zero user impact" />
           <div class="step-body">
             <h3>Deliver</h3>
             <p>A cutover nobody notices. At DLA Pearl Harbor, every site circuit moved to redundant 10 Gbps links in one night, with zero user impact.</p>
           </div>
-            <button class="peek-btn" type="button" aria-expanded="false" aria-label="How that looks: Deliver"></button>
-            <div class="peek">
+            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
+            <div class="peek" role="region" aria-label="How that looks: Deliver">
               <h4>How that looks</h4>
               <ul>
               <li>Change plans and cutover runbooks approved by leadership</li>
@@ -119,7 +119,7 @@
     <div class="wrap">
       <header class="sec-head rise"><h2 class="headline">What I bring to your team.</h2><p class="headline-sub">Eight capabilities, one engineer.</p></header>
       <div class="bento swoosh-l">
-          <div class="tile has-peek big">
+          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek big">
             <h3>Solutions &amp; Presales</h3>
             <p class="value">I sit between the people with the problem and the people who build the fix: discovery, solution design, and the briefing that gets it approved.</p>
             <ul>
@@ -130,8 +130,8 @@
               <li>Proof of concept validation</li>
               <li>Documentation &amp; enablement</li>
             </ul>
-            <button class="peek-btn" type="button" aria-expanded="false" aria-label="Where I have done it: Solutions and Presales"></button>
-            <div class="peek">
+            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
+            <div class="peek" role="region" aria-label="Where I have done it: Solutions and Presales">
               <h4>Where I have done it</h4>
               <ul>
               <li>Discovery with site POCs and government stakeholders across a 100+ site enterprise</li>
@@ -140,7 +140,7 @@
               </ul>
             </div>
           </div>
-          <div class="tile has-peek big">
+          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek big">
             <h3>Automation &amp; DevSecOps</h3>
             <p class="value">I turn repetitive work into pipelines, so audits, configurations, and changes run the same way every time.</p>
             <ul>
@@ -151,8 +151,8 @@
               <li>STIG CKL automation</li>
               <li>EVE-NG / GNS3 labs</li>
             </ul>
-            <button class="peek-btn" type="button" aria-expanded="false" aria-label="Where I have done it: Automation and DevSecOps"></button>
-            <div class="peek">
+            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
+            <div class="peek" role="region" aria-label="Where I have done it: Automation and DevSecOps">
               <h4>Where I have done it</h4>
               <ul>
               <li>STIG reporting automated across 100+ CKL files, deployed at DLA</li>
@@ -161,11 +161,11 @@
               </ul>
             </div>
           </div>
-          <div class="tile has-peek">
+          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
             <h3>Networking</h3>
             <p class="value">Enterprise routing, switching, and WAN, from the campus core to forward-deployed SatCom sites.</p>
-            <button class="peek-btn" type="button" aria-expanded="false" aria-label="Tools &amp; technologies: Networking"></button>
-            <div class="peek">
+            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
+            <div class="peek" role="region" aria-label="Tools &amp; technologies: Networking">
               <h4>Tools &amp; technologies</h4>
               <ul>
               <li>BGP, OSPF, EIGRP, STP</li>
@@ -176,11 +176,11 @@
               </ul>
             </div>
           </div>
-          <div class="tile has-peek">
+          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
             <h3>Data Center &amp; Systems</h3>
             <p class="value">Fabric and virtualization work that keeps mission-critical workloads running.</p>
-            <button class="peek-btn" type="button" aria-expanded="false" aria-label="Tools &amp; technologies: Data Center and Systems"></button>
-            <div class="peek">
+            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
+            <div class="peek" role="region" aria-label="Tools &amp; technologies: Data Center and Systems">
               <h4>Tools &amp; technologies</h4>
               <ul>
               <li>Cisco ACI / APIC / NDO</li>
@@ -191,11 +191,11 @@
               </ul>
             </div>
           </div>
-          <div class="tile has-peek">
+          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
             <h3>Identity &amp; Security</h3>
             <p class="value">Centralized identity and hardened devices: who gets in, and how that gets proven.</p>
-            <button class="peek-btn" type="button" aria-expanded="false" aria-label="Tools &amp; technologies: Identity and Security"></button>
-            <div class="peek">
+            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
+            <div class="peek" role="region" aria-label="Tools &amp; technologies: Identity and Security">
               <h4>Tools &amp; technologies</h4>
               <ul>
               <li>Cisco ISE / 802.1x / TACACS+</li>
@@ -206,11 +206,11 @@
               </ul>
             </div>
           </div>
-          <div class="tile has-peek">
+          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
             <h3>Unified Communications</h3>
             <p class="value">Voice that survives the migration: dial plans, session border controllers, and cutovers nobody notices.</p>
-            <button class="peek-btn" type="button" aria-expanded="false" aria-label="Tools &amp; technologies: Unified Communications"></button>
-            <div class="peek">
+            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
+            <div class="peek" role="region" aria-label="Tools &amp; technologies: Unified Communications">
               <h4>Tools &amp; technologies</h4>
               <ul>
               <li>Cisco CUCM / dial plan</li>
@@ -221,11 +221,11 @@
               </ul>
             </div>
           </div>
-          <div class="tile has-peek">
+          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
             <h3>Monitoring &amp; Analysis</h3>
             <p class="value">Finding the actual fault, packet by packet, and documenting it so it stays fixed.</p>
-            <button class="peek-btn" type="button" aria-expanded="false" aria-label="Tools &amp; technologies: Monitoring and Analysis"></button>
-            <div class="peek">
+            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
+            <div class="peek" role="region" aria-label="Tools &amp; technologies: Monitoring and Analysis">
               <h4>Tools &amp; technologies</h4>
               <ul>
               <li>nGenius packet analysis</li>
@@ -236,11 +236,11 @@
               </ul>
             </div>
           </div>
-          <div class="tile has-peek">
+          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
             <h3>Cloud &amp; AI</h3>
             <p class="value">Applied AI and cloud: retrieval pipelines, MCP servers, and agents that do real work.</p>
-            <button class="peek-btn" type="button" aria-expanded="false" aria-label="Tools &amp; technologies: Cloud and AI"></button>
-            <div class="peek">
+            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
+            <div class="peek" role="region" aria-label="Tools &amp; technologies: Cloud and AI">
               <h4>Tools &amp; technologies</h4>
               <ul>
               <li>Microsoft Azure (AZ-900)</li>
@@ -359,7 +359,7 @@
       </div>
       <div class="who-statement mindset-body">
         <p>
-          The military gave me discipline. Bodybuilding gave me structure. The growth mindset
+          The military gave me discipline. My competitive fitness career gave me structure. The growth mindset
           gave me permission to be a beginner at something hard and stay in it anyway.
           That combination is what I bring to every project, every ticket, and every new
           technology I encounter.
@@ -372,7 +372,7 @@
   <!-- Track record: a roadmap that fills as you scroll -->
   <section id="track-record" class="block">
     <div class="wrap">
-      <header class="sec-head rise"><h2 class="headline">From the infantry to Tier 3.</h2><p class="headline-sub">Four stops, and the biggest thing I delivered at each.</p></header>
+      <header class="sec-head rise"><h2 class="headline">My journey.</h2><p class="headline-sub">Four stops, and the biggest thing I delivered at each.</p></header>
       <div class="roadmap-wrap">
       <span class="road-track" aria-hidden="true"></span>
       <span class="road-fill" aria-hidden="true"></span>
@@ -434,10 +434,10 @@
       <path d="M0,570 L60,574 L120,564 L180,550 L240,542 L300,545 L360,551 L420,549 L480,535 L540,516 L600,505 L660,509 L720,524 L780,538 L840,542 L900,537 L960,534 L1020,541 L1080,557 L1140,572 L1200,575 L1260,564 L1320,546 L1380,534 L1440,534" />
     </svg>
     <div class="wrap">
-      <h2 class="night-title">Active Top Secret.</h2>
-      <p class="clearance-line">Certified and cleared. TS/SSBI initiated June 2025.</p>
+      <h2 class="night-title"><span class="soft">Certified.</span> Cleared.</h2>
 
       <div class="certs swoosh-r">
+        <div class="cert"><span class="cert-abbr">TS</span><span class="cert-name">Active Top Secret clearance</span><span class="cert-meta">TS/SSBI initiated Jun 2025</span></div>
         <div class="cert"><span class="cert-abbr">CCNP</span><span class="cert-name">Cisco CCNP Enterprise</span><span class="cert-meta">Jun 2025 – Jun 2028</span></div>
         <div class="cert"><span class="cert-abbr">CORE</span><span class="cert-name">Cisco Specialist: Enterprise Core</span><span class="cert-meta">Sep 2024 – Sep 2027</span></div>
         <div class="cert"><span class="cert-abbr">ADV</span><span class="cert-name">Cisco Specialist: Enterprise Advanced Infra</span><span class="cert-meta">Jun 2025 – Jun 2028</span></div>

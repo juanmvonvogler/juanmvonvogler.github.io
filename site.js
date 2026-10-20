@@ -176,25 +176,15 @@
   }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
   document.querySelectorAll('.swoosh-l, .swoosh-r').forEach(el => swoosh.observe(el));
 
-  // Pop-ups: hover opens them on desktop; the "+" button toggles them anywhere.
+  // Pop-ups: hover opens them on desktop; a tap, click, Enter or Space toggles them anywhere.
   document.querySelectorAll('.has-peek').forEach(host => {
-    const btn = host.querySelector('.peek-btn');
-    btn.addEventListener('click', () => {
-      const open = !host.classList.contains('open');
-      host.classList.toggle('open', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    const set = open => { host.classList.toggle('open', open); host.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+    host.addEventListener('click', e => { if (!e.target.closest('a')) set(!host.classList.contains('open')); });
+    host.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); set(!host.classList.contains('open')); }
+      if (e.key === 'Escape') set(false);
     });
-    host.addEventListener('mouseleave', () => {
-      host.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key !== 'Escape') return;
-    document.querySelectorAll('.has-peek.open').forEach(h => {
-      h.classList.remove('open');
-      h.querySelector('.peek-btn').setAttribute('aria-expanded', 'false');
-    });
+    host.addEventListener('mouseleave', () => set(false));
   });
 
   // Active nav tab: scroll spy on the home page, fixed on detail pages.
