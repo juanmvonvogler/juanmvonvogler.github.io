@@ -5,13 +5,12 @@
   const nav = document.querySelector('nav');
   root.classList.add('js');
 
-  // Theme: system by default, the visitor's choice once they toggle.
-  const sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+  // Theme: light by default; dark only when the visitor turns it on.
   const themeBtn = document.getElementById('theme-toggle');
   const themeMeta = document.querySelector('meta[name="theme-color"]');
   let dark = false;
   function syncTheme() {
-    dark = root.dataset.theme ? root.dataset.theme === 'dark' : sysDark.matches;
+    dark = root.dataset.theme === 'dark';
     themeBtn.querySelector('.icon-moon').toggleAttribute('hidden', dark);
     themeBtn.querySelector('.icon-sun').toggleAttribute('hidden', !dark);
     themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
@@ -22,7 +21,6 @@
     try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
     syncTheme();
   });
-  sysDark.addEventListener('change', syncTheme);
   syncTheme();
 
   // Hero sphere: nodes on a Fibonacci sphere, linked to near neighbours, turning slowly.

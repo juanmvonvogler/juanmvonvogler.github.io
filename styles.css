@@ -28,16 +28,7 @@
   color-scheme: light;
 }
 
-/* Dark theme: follows the system unless the visitor picked one */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --ink: #f5f5f7; --ink-2: #d2d2d7; --gray: #a1a1a6; --gray-2: #86868b;
-    --faint: #3a3a3c; --line: #38383a; --line-2: #2c2c2e;
-    --tile: #1c1c1e; --white: #000000; --blue: #0ea5e9;
-    --nav-bg: rgba(22,22,23,.72); --nav-line: rgba(255,255,255,.08); --menu-bg: rgba(22,22,23,.96);
-    color-scheme: dark;
-  }
-}
+/* Dark theme: only when the visitor turns it on */
 :root[data-theme="dark"] {
   --ink: #f5f5f7; --ink-2: #d2d2d7; --gray: #a1a1a6; --gray-2: #86868b;
   --faint: #3a3a3c; --line: #38383a; --line-2: #2c2c2e;
