@@ -185,6 +185,28 @@
     host.addEventListener('mouseleave', () => set(false));
   });
 
+  // Diagram viewer: loads the full SVG only when opened, then zooms in steps.
+  const viewer = document.getElementById('diagram-viewer');
+  if (viewer) {
+    const img = viewer.querySelector('.viewer-stage img');
+    const label = viewer.querySelector('.viewer-zoom');
+    const steps = [1, 1.5, 2, 3, 4];
+    let z = 0;
+    const setZoom = i => {
+      z = Math.max(0, Math.min(steps.length - 1, i));
+      img.style.width = (steps[z] * 100) + '%';
+      label.textContent = Math.round(steps[z] * 100) + '%';
+    };
+    document.querySelectorAll('[data-open-diagram]').forEach(b => b.addEventListener('click', () => {
+      if (!img.src) img.src = img.dataset.src;
+      setZoom(window.innerWidth < 700 ? 3 : 0);
+      viewer.showModal();
+    }));
+    viewer.querySelectorAll('[data-zoom]').forEach(b => b.addEventListener('click', () => setZoom(z + Number(b.dataset.zoom))));
+    viewer.querySelector('[data-close]').addEventListener('click', () => viewer.close());
+    viewer.addEventListener('click', e => { if (e.target === viewer) viewer.close(); });
+  }
+
   // Active nav tab: scroll spy on the home page, fixed on detail pages.
   const links = document.querySelectorAll('.nav-links a');
   const page = document.body.dataset.page;

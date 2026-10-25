@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI | Juan Vonvogler</title>
+  <meta name="description" content="The AI systems Juan Vonvogler designed and built: a team of agents that plans his week, a self-building daily dashboard, a pgvector second brain, and a library of reusable Claude skills." />
+  <meta name="theme-color" content="#ffffff" />
+  <script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="ai">
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="wordmark">Juan Vonvogler</a>
+      <div class="nav-right">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/#capabilities" data-tab="capabilities">Capabilities</a></li>
+        <li><a href="/#projects" data-tab="projects">Projects</a></li>
+        <li><a href="ai.html" data-tab="ai">AI</a></li>
+        <li><a href="/#who" data-tab="who">Who I Am</a></li>
+        <li><a href="/#track-record" data-tab="track-record">My Journey</a></li>
+        <li><a href="/#certifications" data-tab="certifications">Credentials</a></li>
+        <li><a href="/#contact" data-tab="contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" hidden><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="page-intro wrap">
+      <h1 class="page-title rise">AI.</h1>
+      <p class="headline-sub rise">What I've built with it, and how it fits together.</p>
+      <p class="page-lead rise">I run my own work on a system of AI agents I designed and built: they capture my ideas, plan my week, work my inbox and calendar, and hand everything back on one dashboard each morning. Here is how it works, and the tools I built along the way.</p>
+    </header>
+    <div class="page-body wrap">
+
+      <section class="ai-block">
+        <header class="sec-head rise"><h2 class="headline">How it works.</h2><p class="headline-sub">Four layers, from a passing thought to a finished day.</p></header>
+        <div class="layers swoosh-l">
+          <div class="layer">
+            <h3>Capture</h3>
+            <p>Ideas and tasks get caught the moment they happen, by voice, so nothing depends on remembering it later.</p>
+            <p class="stack">Wispr Flow notes · Siri · Apple Reminders · Codex voice for new projects</p>
+          </div>
+          <div class="layer">
+            <h3>Plan &amp; build</h3>
+            <p>One weekly planning session in Claude turns everything captured into plans, and local agents build on it.</p>
+            <p class="stack">Claude Code · training, nutrition and study coaches · a project pipeline from kickoff to shipped app</p>
+          </div>
+          <div class="layer">
+            <h3>Act</h3>
+            <p>A master assistant agent takes the plan and hands each piece to the specialist agent that owns it.</p>
+            <p class="stack">Email triage · scheduling · errands and shopping · social media · travel</p>
+          </div>
+          <div class="layer">
+            <h3>Deliver</h3>
+            <p>Everything lands where I already look: my calendar, my inbox, long-term memory, and one dashboard.</p>
+            <p class="stack">Google Calendar · Gmail · Supabase memory · daily dashboard · GitHub</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="ai-block">
+        <header class="sec-head rise"><h2 class="headline">The full topology.</h2><p class="headline-sub">Every tool, agent, and hand-off on one map.</p></header>
+        <figure class="topology swoosh-r">
+          <button class="topology-open" type="button" data-open-diagram aria-label="Open the full AI topology diagram">
+            <img src="assets/ai-topology-preview.jpg" width="2400" height="1354" loading="lazy" alt="Diagram of Juan's AI toolset: capture tools feed a weekly Claude planning session and local coaching agents, a master personal assistant agent directs email, scheduling, errand, shopping, social media and travel agents, and results flow to Google Calendar, Gmail, Supabase memory and a daily dashboard." />
+          </button>
+          <figcaption>
+            <span>Capture tools on top, Claude planning in the middle, the assistant agents on the right, and the outputs along the bottom.</span>
+            <button class="pill" type="button" data-open-diagram>Open the full diagram</button>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="ai-block">
+        <header class="sec-head rise"><h2 class="headline">What I've built.</h2><p class="headline-sub">Systems I use every day.</p></header>
+        <div class="built-grid swoosh-l">
+          <article class="built-tile">
+            <img src="assets/ai-agents.jpg" width="1024" height="688" loading="lazy" alt="Isometric illustration of calendar, email, training and study agents handing work to one calendar block" />
+            <div class="built-body">
+              <h3>A team of agents that plans my week</h3>
+              <p>Each agent is a folder of rules that configures its own Claude session. A calendar agent plans across ten Google Calendars, an email agent sorts Gmail into four bins and drafts replies but never sends, and training, nutrition and study coaches hand their plans to each other and to the calendar.</p>
+              <p class="stack">Claude Code · Folder-agent pattern · MCP connectors · Cloud routines</p>
+            </div>
+          </article>
+          <article class="built-tile">
+            <img src="assets/ai-dashboard.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a daily dashboard with a day timeline, a now marker, and Up next, Focus and Projects tiles" />
+            <div class="built-body">
+              <h3>A dashboard that rebuilds itself every morning</h3>
+              <p>A local dashboard reads what every agent produced. At 5:30 each morning a scheduled task syncs the calendar, rebuilds a snapshot, and republishes it, so the day is waiting when I wake up. Money and health data never leave the Mac.</p>
+              <p class="stack">Next.js · TypeScript · Scheduled tasks · claude.ai artifacts</p>
+            </div>
+          </article>
+          <article class="built-tile">
+            <img src="assets/built-second-brain.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a personal AI memory search returning notes, calendar, and email results from pgvector" />
+            <div class="built-body">
+              <h3>A second brain the agents can search</h3>
+              <p>Long-term memory on PostgreSQL with pgvector (Supabase), Voyage AI embeddings, and a custom MCP server wired into Claude, so any session can recall notes, decisions, and back-burner ideas by meaning.</p>
+              <p class="stack">PostgreSQL/pgvector · Supabase · Voyage AI · MCP Server · Python</p>
+            </div>
+          </article>
+          <article class="built-tile">
+            <img src="assets/ai-skills.jpg" width="1024" height="688" loading="lazy" alt="Illustration of five skill cards connected as stages of a pipeline" />
+            <div class="built-body">
+              <h3>A skills library that runs every project</h3>
+              <p>Reusable Claude skills that take an idea from a raw note to a shipped, reviewed build. Each one is a written procedure Claude loads on its own when the work calls for it, so every project runs the same way.</p>
+              <p class="stack">Claude skills · Markdown procedures · Trigger phrases</p>
+            </div>
+          </article>
+        </div>
+        <div class="details">
+          <article class="detail swoosh-r">
+            <div class="detail-meta">
+              <h2>Fitness Coach Harness</h2>
+              <p class="value">A product, not just a personal tool.</p>
+            </div>
+            <div>
+              <p>The training agent runs on a generic coaching harness with no personal data in it, built so other coaches and clients can run it too. My own agent is its first test user, and every week of use goes into its test log.</p>
+            </div>
+          </article>
+          <article class="detail swoosh-l">
+            <div class="detail-meta">
+              <h2>AI-directed websites</h2>
+              <p class="value">Art direction with generated assets.</p>
+            </div>
+            <div>
+              <p>This site and my company's site were designed with AI as the production team: generated illustrations, photography, and a hero film, held to one design system and reviewed against the Laws of UX before launch.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="ai-block">
+        <header class="sec-head rise"><h2 class="headline">Skills I've built.</h2><p class="headline-sub">The procedures behind every project.</p></header>
+        <ol class="pipeline swoosh-l" aria-label="The order the skills run in">
+          <li>Idea</li><li>Brief</li><li>Kickoff</li><li>Research</li><li>Prototype</li><li>Decide</li><li>Hand off</li><li>Build</li><li>QA</li><li>Audit</li><li>Report</li>
+        </ol>
+        <div class="skill-groups swoosh-r">
+          <div class="skill-group">
+            <h3>Plan</h3>
+            <dl>
+              <dt>idea-to-brief</dt><dd>Turns a raw idea into a brief with a kill, park, or proceed verdict.</dd>
+              <dt>project-kickoff</dt><dd>Scaffolds a new project folder with the standard document set.</dd>
+              <dt>research</dt><dd>Breaks a question down, triangulates sources, and labels confidence.</dd>
+              <dt>decision-record</dt><dd>Options, tradeoffs, and the why, saved where the next session finds it.</dd>
+            </dl>
+          </div>
+          <div class="skill-group">
+            <h3>Build &amp; hand off</h3>
+            <dl>
+              <dt>handoff-prompt</dt><dd>Self-contained build prompts another agent can run without the conversation.</dd>
+              <dt>project-diagram</dt><dd>Plans a project and draws its workflow: which tool owns each step.</dd>
+            </dl>
+          </div>
+          <div class="skill-group">
+            <h3>Ship &amp; review</h3>
+            <dl>
+              <dt>site-qa</dt><dd>Pre-launch web QA that ends in a go or no-go.</dd>
+              <dt>ux-laws</dt><dd>The 21 Laws of UX as a framing and review checklist.</dd>
+              <dt>app-store-assets</dt><dd>Apple's App Store asset rules as a pre-submission check.</dd>
+              <dt>project-audit</dt><dd>An evidence-based state of the project with next steps.</dd>
+              <dt>progress-report</dt><dd>A weekly review of what moved, what's stuck, and what's next.</dd>
+            </dl>
+          </div>
+          <div class="skill-group">
+            <h3>Agents</h3>
+            <dl>
+              <dt>agent-research</dt><dd>Researches the real-world role before any agent is built.</dd>
+              <dt>design-agent</dt><dd>Turns that research into a full design spec.</dd>
+              <dt>agent-qa</dt><dd>Tests every new agent before it reaches production.</dd>
+              <dt>wispr</dt><dd>Turns voice notes into calendar, memory, and email actions.</dd>
+            </dl>
+          </div>
+          <div class="skill-group">
+            <h3>Writing &amp; learning</h3>
+            <dl>
+              <dt>writing</dt><dd>A three-pass harness: plan, draft, adversarial revision.</dd>
+              <dt>resume-writing</dt><dd>Tailors a resume to a posting without inventing anything.</dd>
+              <dt>curriculum-builder</dt><dd>Lessons, worksheets, and quizzes fitted to the learner.</dd>
+              <dt>study-coach</dt><dd>Active-recall sessions that remember weak areas.</dd>
+            </dl>
+          </div>
+        </div>
+        <p class="ai-note">A few more, like grill-me and prototype, are adapted from open-source skills and credited in the library.</p>
+      </section>
+
+      <section class="ai-block ai-cta">
+        <header class="sec-head rise"><h2 class="headline">Want this for your team?</h2><p class="headline-sub">I'll map where your work comes in, who owns each step, and what an agent can take off your plate. Then I'll build it.</p></header>
+        <a href="/#contact" class="pill">Bring me a problem</a>
+      </section>
+
+    </div>
+
+    <dialog class="viewer" id="diagram-viewer" aria-label="Full AI topology diagram">
+      <div class="viewer-bar">
+        <span class="viewer-title">AI topology</span>
+        <div class="viewer-controls">
+          <button type="button" data-zoom="-1" aria-label="Zoom out">−</button>
+          <span class="viewer-zoom" aria-live="polite">100%</span>
+          <button type="button" data-zoom="1" aria-label="Zoom in">+</button>
+          <a href="assets/ai-topology-full.jpg" target="_blank" rel="noopener">Open in new tab</a>
+          <button type="button" class="viewer-close" data-close aria-label="Close diagram">Close</button>
+        </div>
+      </div>
+      <div class="viewer-stage"><img data-src="assets/ai-topology-full.jpg" width="6967" height="3932" alt="Full AI topology diagram" /></div>
+    </dialog>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© 2026 Juan Vonvogler</span>
+      <span class="foot-links">
+        <a href="capabilities.html">Capabilities</a>
+        <a href="projects.html">Projects</a>
+        <a href="ai.html">AI</a>
+        <a href="about.html">Who I Am</a>
+        <a href="track-record.html">Track Record</a>
+        <a href="mailto:juanmvonvogler@gmail.com">Email</a>
+      </span>
+      <span>Solutions/Systems Engineer · Active Top Secret · Woodbridge, VA</span>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>
