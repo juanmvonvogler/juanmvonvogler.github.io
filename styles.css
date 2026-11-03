@@ -2,7 +2,7 @@
   --ink:     #1d1d1f;
   --ink-2:   #424245;
   --gray:    #6e6e73;
-  --gray-2:  #86868b;
+  --gray-2:  #6e6e73;
   --faint:   #c7c7cc;
   --line:    #d2d2d7;
   --tile:    #f5f5f7;
@@ -12,7 +12,7 @@
   --blue-on-dark: #0ea5e9;
   --btn:       #0369a1;
   --btn-hover: #04578a;
-  --line-2:  var(--line-2);
+  --line-2:  #e5e5ea;
   --nav-bg:  rgba(255,255,255,.72);
   --nav-line: rgba(0,0,0,.08);
   --menu-bg: rgba(255,255,255,.96);
@@ -126,7 +126,7 @@ nav.dark .theme-toggle { color: #f5f5f7; }
 
 .nav-toggle {
   display: none; background: none; border: 0;
-  width: 40px; height: 40px; margin-right: -8px;
+  width: 44px; height: 44px; margin-right: -10px;
   align-items: center; justify-content: center;
   color: var(--ink); cursor: pointer;
 }
@@ -163,7 +163,7 @@ nav.dark .theme-toggle { color: #f5f5f7; }
 .pill {
   display: inline-flex; align-items: center; justify-content: center;
   font: inherit; font-size: 17px; font-weight: 400;
-  padding: 11px 22px; border-radius: 980px;
+  padding: 11px 22px; border-radius: 12px;
   background: var(--btn); color: #fff;
   border: 0; text-decoration: none; cursor: pointer;
   transition: background .3s var(--ease), box-shadow .35s var(--ease), transform .35s var(--ease);
@@ -335,9 +335,9 @@ h1 {
   transform-origin: left center;
   opacity: calc(.15 + .85 * var(--n));
 }
-.night-title .soft { display: block; color: #6e6e73; }
+.night-title .soft { display: block; color: #86868b; }
 .clearance-line { font-size: 15px; color: #a1a1a6; margin: 1.75rem 0 clamp(3rem, 7vw, 5rem); }
-.certs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem 2.5rem; }
+.certs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem 2.5rem; margin-top: clamp(3rem, 7vw, 5rem); }
 .cert {
   display: grid; grid-template-columns: 5.25rem minmax(0, 1fr); column-gap: 1rem; align-items: start;
 }
@@ -496,7 +496,7 @@ footer { background: var(--tile); }
   opacity: 0; visibility: hidden; transform: translateY(18px);
   transition: opacity .25s var(--ease), transform .3s var(--ease), visibility .25s;
 }
-.peek h4 { font-size: 13px; font-weight: 600; color: var(--gray-2); margin-bottom: .8rem; }
+.peek h4 { font-size: 13px; font-weight: 600; color: var(--faint); margin-bottom: .8rem; }
 .peek ul { color: inherit; list-style: none; font-size: 16px; line-height: 1.45; }
 .peek li + li { margin-top: .55rem; }
 .peek p { font-size: 15px; line-height: 1.5; }
@@ -551,6 +551,7 @@ footer { background: var(--tile); }
 .prose p { font-size: clamp(1.05rem, 1.6vw, 1.2rem); line-height: 1.6; color: var(--ink-2); }
 .prose p + p { margin-top: 1.3em; }
 .prose a { color: var(--blue); }
+.prose .detail-shot { margin: 2.2em 0; }
 .foot-links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
 .foot-links a { text-decoration: none; color: var(--gray); }
 .foot-links a:hover { color: var(--ink); }
@@ -622,7 +623,7 @@ footer { background: var(--tile); }
 .topology-open:hover img { transform: scale(1.015); }
 .topology figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; margin-top: 1.25rem; color: var(--gray); font-size: 15px; }
 .pipeline { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem; counter-reset: none; }
-.pipeline li { position: relative; font-size: 14px; font-weight: 500; color: var(--ink); background: var(--tile); border-radius: 980px; padding: .4rem .9rem; }
+.pipeline li { position: relative; font-size: 14px; font-weight: 500; color: var(--ink); background: var(--tile); border-radius: var(--r-small); padding: .4rem .9rem; }
 .pipeline li:not(:last-child)::after { content: "\203A"; position: absolute; right: -.5rem; top: 50%; transform: translate(50%, -55%); color: var(--blue); font-weight: 600; }
 .skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .skill-group { background: var(--tile); border-radius: var(--r-card); padding: clamp(1.4rem, 2.6vw, 1.9rem); }
@@ -641,7 +642,7 @@ footer { background: var(--tile); }
 .viewer-title { font-weight: 600; }
 .viewer-controls { display: flex; align-items: center; gap: .5rem; font-size: 15px; }
 .viewer-controls button, .viewer-controls a {
-  min-width: 44px; min-height: 44px; padding: 0 .8rem; border: 0; border-radius: 980px;
+  min-width: 44px; min-height: 44px; padding: 0 .8rem; border: 0; border-radius: var(--r-small);
   background: var(--white); color: var(--ink); font: inherit; text-decoration: none;
   display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
 }
