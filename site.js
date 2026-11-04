@@ -39,6 +39,16 @@
       const d = Math.sqrt(dx * dx + dy * dy + dz * dz);
       if (d < TH) edges.push([i, j, d]);
     }
+    // Packets hop node to node along the links; the route they took stays lit, then fades.
+    const links = nodes.map(() => []);
+    edges.forEach(([a, b], e) => { links[a].push([b, e]); links[b].push([a, e]); });
+    const heat = new Float32Array(edges.length), ping = new Float32Array(N);
+    const hop = (pk, from) => {
+      const opts = links[from].filter(([to]) => to !== pk.from);
+      const [to, e] = opts[Math.floor(Math.random() * opts.length)] || links[from][0];
+      pk.from = from; pk.to = to; pk.e = e; pk.t = 0;
+    };
+    const packets = [0, 40, 80].map(n => { const pk = { from: -1 }; hop(pk, n); return pk; });
     let W = 0, H = 0, R = 0, ang = 0, tx = 0, ty = 0, mx = 0, my = 0;
     const FOV = 3.2;
     const resize = () => {
@@ -65,17 +75,47 @@
       const pts = nodes.map(p => project(p, ang + tx, 0.18 + ty));
       for (const [a, b, d] of edges) {
         const dep = (pts[a].d + pts[b].d) / 2;
-        ctx.strokeStyle = (dark ? 'rgba(14,165,233,' : 'rgba(3,105,161,') + ((0.04 + dep * 0.24) * (1 - (d / TH) * 0.4)).toFixed(3) + ')';
+        ctx.strokeStyle = (dark ? 'rgba(111,195,163,' : 'rgba(31,92,73,') + ((0.04 + dep * 0.24) * (1 - (d / TH) * 0.4)).toFixed(3) + ')';
         ctx.lineWidth = 0.5 + dep * 0.6;
         ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y); ctx.stroke();
       }
+      const ink = dark ? 'rgba(111,195,163,' : 'rgba(31,92,73,';
+      if (!reduce) edges.forEach(([a, b], e) => {
+        if (heat[e] < 0.01) return;
+        ctx.strokeStyle = ink + (heat[e] * (0.25 + (pts[a].d + pts[b].d) * 0.3)).toFixed(3) + ')';
+        ctx.lineWidth = 1.4;
+        ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y); ctx.stroke();
+        heat[e] *= 0.975;
+      });
       for (const p of pts) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, 1 + p.d * 2.4, 0, Math.PI * 2);
-        ctx.fillStyle = (dark ? 'rgba(56,189,248,' : 'rgba(14,165,233,') + (0.18 + p.d * 0.55).toFixed(3) + ')';
+        ctx.fillStyle = (dark ? 'rgba(111,195,163,' : 'rgba(31,92,73,') + (0.18 + p.d * 0.55).toFixed(3) + ')';
         ctx.fill();
       }
-      if (!reduce) { ang += 0.0018; requestAnimationFrame(frame); }
+      if (!reduce) {
+        pts.forEach((p, i) => {
+          if (ping[i] < 0.02) return;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 3 + (1 - ping[i]) * 13, 0, Math.PI * 2);
+          ctx.strokeStyle = ink + (ping[i] * 0.5).toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          ping[i] *= 0.95;
+        });
+        for (const pk of packets) {
+          const a = pts[pk.from], b = pts[pk.to];
+          const u = pk.t * pk.t * (3 - 2 * pk.t);
+          ctx.beginPath();
+          ctx.arc(a.x + (b.x - a.x) * u, a.y + (b.y - a.y) * u, 2.2 + (a.d + b.d) * 0.9, 0, Math.PI * 2);
+          ctx.fillStyle = ink + (0.45 + (a.d + b.d) * 0.275).toFixed(3) + ')';
+          ctx.fill();
+          heat[pk.e] = Math.max(heat[pk.e], u);
+          pk.t += 0.024;
+          if (pk.t >= 1) { ping[pk.to] = 1; hop(pk, pk.to); }
+        }
+        ang += 0.0018; requestAnimationFrame(frame);
+      }
     };
     const home = document.getElementById('home');
     if (!reduce) {
@@ -90,6 +130,11 @@
     resize(); frame();
     requestAnimationFrame(() => canvas.classList.add('on'));
   }
+
+  // Buttons: a hairline that traces the edge on hover.
+  document.querySelectorAll('.pill').forEach(b => {
+    b.insertAdjacentHTML('beforeend', '<svg class="trace" aria-hidden="true"><rect pathLength="1" /></svg>');
+  });
 
   // Statement: split into words (keeping links intact), then light them in reading order.
   const mindset = document.querySelector('.mindset-body');

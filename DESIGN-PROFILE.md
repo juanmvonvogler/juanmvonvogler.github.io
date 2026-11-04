@@ -11,10 +11,11 @@ of a fresh intake. Change it by saying "change the style" or editing this file.
 
 ## Tokens
 Live in `styles.css` on `:root`, with dark values under `[data-theme="dark"]`.
-- Colour: ground #ffffff, tile #f5f5f7, ink #1d1d1f, muted #6e6e73, accent #0369a1 (#0ea5e9 on dark)
+- Colour: ground #ffffff, tile #f5f5f7, ink #1d1d1f, muted #6e6e73, accent bottle green #1f5c49 (#6fc3a3 on dark)
 - Type: system SF stack, tabular figures, no monospace
 - Edges: cards 14px, tiles 10px, buttons 12px, flat tone step with no borders
-- Hover: lift and tilt on client cards, blur only glow on buttons
+- Hover: lift and tilt on client cards, blur only glow plus a hairline edge trace on buttons
+- Signature motion: packets hop along the hero sphere's links and light the route behind them
 - Light by default; dark only through the toggle
 
 ## Words
@@ -35,7 +36,7 @@ Live in `styles.css` on `:root`, with dark values under `[data-theme="dark"]`.
 | Circles | Headshot, roadmap stops, theme toggle | These are not cards or buttons |
 
 ## Imagery
-Isometric illustrations from Higgsfield (`gpt_image_2_5`) at 3:2, on light gray with deep blue as the only accent, using existing assets as style references. New ones carry no text. Client work stays flat screenshots.
+Isometric illustrations from Higgsfield (`gpt_image_2_5`) at 3:2, on light gray with the green accent as the only colour, using existing assets as style references. New ones carry no text. Client work stays flat screenshots.
 
 ## Done means
 - Screens: index, about, ai, capabilities, projects, track-record
