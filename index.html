@@ -35,8 +35,8 @@
       <a href="#home" class="wordmark">Juan Vonvogler</a>
       <div class="nav-right">
       <ul class="nav-links" id="nav-links">
-        <li><a href="#capabilities" data-tab="capabilities">Capabilities</a></li>
         <li><a href="#projects" data-tab="projects">Projects</a></li>
+        <li><a href="#capabilities" data-tab="capabilities">Capabilities</a></li>
         <li><a href="ai.html" data-tab="ai">AI</a></li>
         <li><a href="#who" data-tab="who">Who I Am</a></li>
         <li><a href="#track-record" data-tab="track-record">Track Record</a></li>
@@ -128,6 +128,66 @@
         <p class="zero-num" aria-hidden="true">0</p>
         <p class="zero-text"><strong><span class="visually-hidden">Zero </span>user impact.</strong> Every DLA Pearl&nbsp;Harbor site circuit moved onto redundant 10&nbsp;Gbps links in one overnight cutover.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Projects: proof first -->
+  <section id="projects" class="block">
+    <div class="wrap">
+      <header class="sec-head rise"><h2 class="headline">Solutions I’ve delivered.</h2><p class="headline-sub">On the job and on my own time.</p></header>
+      <div class="built-grid" data-stagger>
+        <article class="built-tile">
+          <img src="assets/built-stig.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a STIG compliance report built from CKL checklist results" />
+          <div class="built-body">
+            <h3><a class="card-link" href="projects.html#stig">STIG PowerShell Automation Engine</a></h3>
+            <p>Days of manual checklist review, turned into one report. I built a PowerShell pipeline that parses and evaluates 100+ STIG CKL files and produces the compliance report.</p>
+            <p class="stack">PowerShell&nbsp;· DISA&nbsp;STIG&nbsp;· CKL&nbsp;Parsing&nbsp;· Deployed&nbsp;at&nbsp;DLA</p>
+          </div>
+        </article>
+        <article class="built-tile">
+          <img src="assets/built-config-review.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a Cisco configuration diff that moves a switchport to a new VLAN, with an Approve button" />
+          <div class="built-body">
+            <h3><a class="card-link" href="projects.html#github-review">GitHub Enterprise Configuration Review</a></h3>
+            <p>A tool request that became a program. I wrote the business case that won GitHub Enterprise licensing, then designed the repository and branch structure for network configuration version control.</p>
+            <p class="stack">GitHub&nbsp;Enterprise&nbsp;· Git&nbsp;· DevSecOps&nbsp;· Deployed&nbsp;at&nbsp;DLA</p>
+          </div>
+        </article>
+        <article class="built-tile">
+          <img src="assets/built-eve-ng.jpg" width="1024" height="688" loading="lazy" alt="Isometric lab topology with a router, two switches, ISE, AD/DNS, an Ansible node, and a RADIUS/NTP server" />
+          <div class="built-body">
+            <h3><a class="card-link" href="projects.html#eve-ng">EVE-NG Automation Lab</a></h3>
+            <p>My EVE-NG lab is built to production standard, so playbooks, TACACS+ workflows, and routing changes are proven before they go live.</p>
+            <p class="stack"><span class="nowrap">EVE-NG</span>&nbsp;· Ansible&nbsp;· ISE/TACACS+&nbsp;· Cisco&nbsp;IOS&nbsp;· In&nbsp;use</p>
+          </div>
+        </article>
+        <article class="built-tile">
+          <img src="assets/built-agents.jpg" width="1024" height="688" loading="lazy" alt="Isometric illustration of AI agents for email, calendar, documents, and settings around a central orchestrator" />
+          <div class="built-body">
+            <h3><a class="card-link" href="projects.html#agents">Multi-Agent AI Operating System</a></h3>
+            <p>My inbox, calendar, and week run on agents I built. They work in Claude Code, share a Supabase memory with pgvector search, and have the day on one dashboard before I wake up.</p>
+            <p class="stack">Claude&nbsp;Code&nbsp;· Supabase&nbsp;Postgres/pgvector&nbsp;· Next.js&nbsp;· Wispr&nbsp;Flow&nbsp;· In&nbsp;daily&nbsp;use</p>
+          </div>
+        </article>
+      </div>
+      <h3 class="subhead rise">Websites for small businesses.</h3>
+      <div class="clients" data-stagger>
+        <article class="client client-feature">
+          <img class="client-shot" src="assets/client-divine.jpg" width="1200" height="750" loading="lazy" alt="Divine Assisted Care homepage: a nurse with a client at home under the headline Compassionate In-Home Mental Health Nursing Care" />
+          <div class="client-body">
+            <h4><a class="card-link" href="projects.html#divine">Divine Assisted Care LLC</a></h4>
+            <p>Mental health nursing in the home. New patients reach them through a custom intake and inquiry form built with HIPAA in mind. I built the site and its backend, then ran the server and hosting after launch.</p>
+            <p class="stack">Custom&nbsp;Backend&nbsp;· Forms&nbsp;· DNS/Hosting</p>
+          </div>
+        </article>
+        <article class="client client-wide">
+          <div class="client-body">
+            <h4><a class="card-link" href="projects.html#jbexclusive">JBExclusive Studios</a></h4>
+            <p>Barbershop. Clients book their appointments online. I built the booking platform (scheduling, a service catalog, and client management) on Wix with custom CSS, and managed the domain, DNS, and hosting.</p>
+            <p class="stack">Wix&nbsp;· Custom&nbsp;CSS&nbsp;· DNS/Hosting</p>
+          </div>
+        </article>
+      </div>
+      <p class="section-links"><a href="projects.html" class="more">See every project in detail</a><a href="ai.html" class="more">See everything I’ve built with AI</a></p>
     </div>
   </section>
 
@@ -250,66 +310,6 @@
         </div>
       </div>
       <a href="capabilities.html" class="more section-more">Explore every capability</a>
-    </div>
-  </section>
-
-  <!-- Projects: proof first -->
-  <section id="projects" class="block">
-    <div class="wrap">
-      <header class="sec-head rise"><h2 class="headline">Solutions I’ve delivered.</h2><p class="headline-sub">On the job and on my own time.</p></header>
-      <div class="built-grid" data-stagger>
-        <article class="built-tile">
-          <img src="assets/built-stig.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a STIG compliance report built from CKL checklist results" />
-          <div class="built-body">
-            <h3><a class="card-link" href="projects.html#stig">STIG PowerShell Automation Engine</a></h3>
-            <p>Days of manual checklist review, turned into one report. I built a PowerShell pipeline that parses and evaluates 100+ STIG CKL files and produces the compliance report.</p>
-            <p class="stack">PowerShell&nbsp;· DISA&nbsp;STIG&nbsp;· CKL&nbsp;Parsing&nbsp;· Deployed&nbsp;at&nbsp;DLA</p>
-          </div>
-        </article>
-        <article class="built-tile">
-          <img src="assets/built-config-review.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a Cisco configuration diff that moves a switchport to a new VLAN, with an Approve button" />
-          <div class="built-body">
-            <h3><a class="card-link" href="projects.html#github-review">GitHub Enterprise Configuration Review</a></h3>
-            <p>A tool request that became a program. I wrote the business case that won GitHub Enterprise licensing, then designed the repository and branch structure for network configuration version control.</p>
-            <p class="stack">GitHub&nbsp;Enterprise&nbsp;· Git&nbsp;· DevSecOps&nbsp;· Deployed&nbsp;at&nbsp;DLA</p>
-          </div>
-        </article>
-        <article class="built-tile">
-          <img src="assets/built-eve-ng.jpg" width="1024" height="688" loading="lazy" alt="Isometric lab topology with a router, two switches, ISE, AD/DNS, an Ansible node, and a RADIUS/NTP server" />
-          <div class="built-body">
-            <h3><a class="card-link" href="projects.html#eve-ng">EVE-NG Automation Lab</a></h3>
-            <p>My EVE-NG lab is built to production standard, so playbooks, TACACS+ workflows, and routing changes are proven before they go live.</p>
-            <p class="stack"><span class="nowrap">EVE-NG</span>&nbsp;· Ansible&nbsp;· ISE/TACACS+&nbsp;· Cisco&nbsp;IOS&nbsp;· In&nbsp;use</p>
-          </div>
-        </article>
-        <article class="built-tile">
-          <img src="assets/built-agents.jpg" width="1024" height="688" loading="lazy" alt="Isometric illustration of AI agents for email, calendar, documents, and settings around a central orchestrator" />
-          <div class="built-body">
-            <h3><a class="card-link" href="projects.html#agents">Multi-Agent AI Operating System</a></h3>
-            <p>My inbox, calendar, and week run on agents I built. They work in Claude Code, share a Supabase memory with pgvector search, and have the day on one dashboard before I wake up.</p>
-            <p class="stack">Claude&nbsp;Code&nbsp;· Supabase&nbsp;Postgres/pgvector&nbsp;· Next.js&nbsp;· Wispr&nbsp;Flow&nbsp;· In&nbsp;daily&nbsp;use</p>
-          </div>
-        </article>
-      </div>
-      <h3 class="subhead rise">Websites for small businesses.</h3>
-      <div class="clients" data-stagger>
-        <article class="client client-feature">
-          <img class="client-shot" src="assets/client-divine.jpg" width="1200" height="750" loading="lazy" alt="Divine Assisted Care homepage: a nurse with a client at home under the headline Compassionate In-Home Mental Health Nursing Care" />
-          <div class="client-body">
-            <h4><a class="card-link" href="projects.html#divine">Divine Assisted Care LLC</a></h4>
-            <p>Mental health nursing in the home. New patients reach them through a custom intake and inquiry form built with HIPAA in mind. I built the site and its backend, then ran the server and hosting after launch.</p>
-            <p class="stack">Custom&nbsp;Backend&nbsp;· Forms&nbsp;· DNS/Hosting</p>
-          </div>
-        </article>
-        <article class="client client-wide">
-          <div class="client-body">
-            <h4><a class="card-link" href="projects.html#jbexclusive">JBExclusive Studios</a></h4>
-            <p>Barbershop. Clients book their appointments online. I built the booking platform (scheduling, a service catalog, and client management) on Wix with custom CSS, and managed the domain, DNS, and hosting.</p>
-            <p class="stack">Wix&nbsp;· Custom&nbsp;CSS&nbsp;· DNS/Hosting</p>
-          </div>
-        </article>
-      </div>
-      <p class="section-links"><a href="projects.html" class="more">See every project in detail</a><a href="ai.html" class="more">See everything I’ve built with AI</a></p>
     </div>
   </section>
 
@@ -509,8 +509,8 @@
       </div>
       <div class="foot-row foot-base">
         <nav class="foot-links" aria-label="Pages">
-          <a href="capabilities.html">Capabilities</a>
           <a href="projects.html">Projects</a>
+          <a href="capabilities.html">Capabilities</a>
           <a href="ai.html">AI</a>
           <a href="about.html">Who I Am</a>
           <a href="track-record.html">Track Record</a>
