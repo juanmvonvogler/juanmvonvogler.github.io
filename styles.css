@@ -986,3 +986,237 @@ button.peek-hint:focus-visible { outline-offset: -5px; border-radius: var(--r-ca
 }
 @media (pointer: coarse) { .jump a { min-height: 44px; } }
 @media (forced-colors: active) { .js .cap-name::before { forced-color-adjust: none; background: CanvasText; } }
+
+/* ==== Wide screens (begin) ==== */
+/* Above 1440 the page keeps its shape and uses the window. The side margins stay at the 220px they are
+   at 1440, so every extra pixel goes to the content. Type and spacing ride one scaled pixel (--px, 1 at
+   1440 to 1.3 at 3440, held back by short windows), and grids take more columns as the room appears. */
+@media (min-width: 1441px) {
+  :root {
+    --px: clamp(1px, min(calc(1px + (100vw - 1440px) * .00015), calc(100vh / 900)), 1.3px);
+    --gutter: 40px;
+    --maxw: min(calc(100vw - 360px), 3480px);
+    --nav-h: calc(52 * var(--px));
+    --fs-small: calc(13 * var(--px));
+    --fs-meta: calc(15 * var(--px));
+    --fs-body: calc(17 * var(--px));
+    --side: calc(340 * var(--px));
+    --grid-gap: calc(20 * var(--px));
+    --col-gap: 4.5rem;
+  }
+  /* rem and em follow the scaled pixel: every clamp() type token, section padding, card padding */
+  html { font-size: calc(100% + 16 * (var(--px) - 1px)); }
+  body { font-size: var(--fs-body); }
+
+  /* the px set pieces, restated on the scale */
+  .wordmark { font-size: var(--fs-meta); }
+  .nav-links a { font-size: var(--fs-small); }
+  .theme-toggle { width: calc(32 * var(--px)); height: calc(32 * var(--px)); }
+  .theme-toggle svg { width: calc(17 * var(--px)); height: calc(17 * var(--px)); }
+  .nav-cta { min-height: calc(32 * var(--px)); padding: 0 calc(14 * var(--px)); }
+  .pill { font-size: var(--fs-body); padding: calc(11 * var(--px)) calc(22 * var(--px)); }
+  .more { font-size: var(--fs-body); }
+  .job-org, .cert-name, .consult, .success-msg, .peek p, .stop-when, .stop-body > .stop-role,
+  .topology figcaption, .skill-group dd, .ai-note, .viewer-controls { font-size: var(--fs-meta); }
+  .job-org strong, .consult strong, .field input, .field textarea { font-size: var(--fs-body); }
+  .stack, .built-body .stack, .cert-meta, .field label, .peek h4, .detail h3 { font-size: var(--fs-small); }
+  .field input, .field textarea, .btn-submit { min-height: calc(52 * var(--px)); }
+  .field textarea { min-height: calc(140 * var(--px)); }
+  .field { margin-bottom: calc(12 * var(--px)); }
+  .peek-hint::before { width: calc(18 * var(--px)); height: calc(18 * var(--px)); font-size: calc(14 * var(--px)); }
+  .jump a { min-height: calc(36 * var(--px)); }
+  .who-photo { max-width: calc(300 * var(--px)); }
+  .about-intro .who-photo { max-width: calc(260 * var(--px)); }
+  .prose, .about-copy, .stop-body > .stop-role { max-width: calc(680 * var(--px)); }
+  .mindset-body { max-width: min(calc(820 * var(--px) + (100vw - 1440px) * .6), 56em); }
+  .built-grid, .clients, .steps, .layers, .skill-groups { gap: var(--grid-gap); }
+  .layer:not(:last-child)::after { right: calc(var(--grid-gap) / -2 - 5px); }
+  .job, .who, .detail, .about-intro { grid-template-columns: minmax(0, var(--side)) minmax(0, 1fr); }
+  .client-wide .client-body { grid-template-columns: minmax(0, var(--side)) minmax(0, 1fr); }
+
+  /* Hero: the sphere grows with the window and keeps its centre where it is at 1440 (68.75% across) */
+  #hero-canvas {
+    --hero-w: min(calc(860px + (100vw - 1440px) * .42), max(860px, 96vh));
+    width: var(--hero-w);
+    right: calc(31.25vw - var(--hero-w) / 2);
+  }
+
+  /* Track record roadmap: the date column and the track follow the scale; nothing else about it moves */
+  .stop { grid-template-columns: calc(160 * var(--px)) minmax(0, 1fr); column-gap: calc(72 * var(--px)); }
+  .stop-when { padding-top: calc(2 * var(--px)); }
+  .road-track, .road-fill { left: calc(196 * var(--px) - 1px); }
+  .road-tip { left: calc(196 * var(--px) - 4.5px); }
+  .stop::before, .stop::after { left: calc(196 * var(--px) - 7px); top: calc(13 * var(--px) - 8px); }
+
+  /* Running text keeps its measure however wide the column gets */
+  .built-body p:not(.stack), .client p:not(.stack), .cap-panel li, .job-points li, .detail li,
+  .detail p:not(.stack), .tools, .direct { max-width: 36em; }
+  .step-body p { max-width: 30em; }
+  .stack { max-width: 45em; }
+  .ai-note { max-width: 42em; }
+  .who-brief { max-width: 35em; }
+  .topology-open { max-width: 2900px; }
+
+  /* About: the picture grows beside its paragraph, up to a little wider than the text */
+  .about-row { grid-template-columns: minmax(0, min(calc(var(--side) + (100vw - 1440px) * .75), 40em)) 31em; }
+}
+
+/* 1800: a roadmap stop reads across (story, then the win); the text only client card becomes one row */
+@media (min-width: 1800px) {
+  .stop-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto 1fr auto; column-gap: 3.5rem; align-items: start; }
+  .stop-body > p { max-width: 36em; }
+  .stop-body > h3 { grid-column: 1; grid-row: 1; }
+  .stop-body > .stop-role { grid-column: 1; grid-row: 2; }
+  .stop-body > .stop-role + p { grid-column: 1; grid-row: 3 / span 2; }
+  .stop-body:has(> .stop-win + p) > .stop-role + p { grid-row: 3; }
+  .stop-body > .stop-win { grid-column: 2; grid-row: 1 / -1; margin-top: .2rem; }
+  .stop-body > .stop-win + p { grid-column: 1; grid-row: 4; }
+  .stop-next .stop-body > h3 + p { grid-column: 1; grid-row: 2; }
+  .stop-next .stop-body > .stop-cta { grid-column: 2; grid-row: 1 / span 3; margin-top: .2rem; }
+
+  .client-wide .client-body { grid-template-columns: max-content minmax(0, 36em) minmax(0, 1fr); align-items: baseline; }
+  .client-wide p:not(.stack) { grid-column: 2; grid-row: 1; }
+  .client-wide .stack { grid-column: 3; grid-row: 1; margin-top: 0; justify-self: end; }
+}
+
+/* 2000: detail rows run three across (heading, picture, text); the About story goes two chapters across */
+@media (min-width: 2000px) {
+  .detail:has(.detail-shot), .job { grid-template-columns: minmax(0, 4fr) minmax(0, 13fr); }
+  .detail > div:has(> .detail-shot), .job > div:has(> .detail-shot) { display: grid; column-gap: var(--col-gap); align-items: start; }
+  .detail > div:has(> .detail-shot) { grid-template-columns: minmax(0, 6fr) minmax(0, 7fr); grid-template-rows: repeat(4, auto) 1fr; }
+  .detail > div > .detail-shot { grid-column: 1; grid-row: 1 / -1; margin: 0; }
+  .detail > div:has(> .detail-shot) > :not(.detail-shot) { grid-column: 2; }
+  .job > div:has(> .detail-shot) { grid-template-columns: minmax(0, 7fr) minmax(0, 6fr); grid-template-rows: auto auto 1fr; }
+  .job > div:has(> .detail-shot) > :not(.detail-shot) { grid-column: 1; }
+  .job > div > .stack + .detail-shot { grid-column: 2; grid-row: 1 / -1; margin: 0; }
+
+  /* About: two chapters across, each picture over its paragraph */
+  .about-rows { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--col-gap); }
+  .about-row { grid-template-columns: minmax(0, 38em); gap: 1.75rem; }
+  .about-row-end > .prose { grid-column: auto; }
+}
+
+/* 2100: the wide tier */
+@media (min-width: 2100px) {
+  /* Approach: three steps, then the number they lead to */
+  #approach .wrap { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); column-gap: calc(3 * var(--grid-gap)); }
+  #approach .sec-head { grid-column: 1 / -1; }
+  #approach .zero { grid-column: 2; grid-template-columns: minmax(0, 1fr); row-gap: 1.5rem; margin-top: 0; align-self: end; }
+
+  /* Projects: four tiles in one row; the client feature and the text card share a row */
+  .built-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .clients:has(.client-feature) { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+  .clients:has(.client-feature) > .client { grid-column: auto; }
+  .clients:has(.client-feature) .client-wide .client-body { display: flex; flex-direction: column; justify-content: center; }
+  .clients:has(.client-feature) .client-wide .stack { margin-top: 1.25rem; }
+  .clients:has(.client-feature) .client-wide p:not(.stack) { flex-grow: 0; }
+
+  /* Capabilities index: names, then the panel split into claim and proof */
+  .js .caps { grid-template-columns: max-content minmax(0, 1fr); }
+  .js .cap-panel { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: auto auto auto 1fr; column-gap: 3.5rem; }
+  .js .cap-value { grid-column: 1; grid-row: 1 / -1; }
+  .js .cap-panel h4 { grid-column: 2; grid-row: 1; margin-top: .35rem; }
+  .js .cap-panel ul { grid-column: 2; grid-row: 2; }
+  .js .cap-panel .stack { grid-column: 2; grid-row: 3; }
+  .js .cap-cta { grid-column: 2; grid-row: 4; justify-self: start; }
+
+  /* Who I Am: the brief on the left, the statement on the right */
+  #who .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--col-gap); align-items: start; }
+  #who .sec-head, #who .section-more { grid-column: 1 / -1; }
+  #who .section-more { justify-self: start; }
+  #who .who { grid-template-columns: minmax(0, calc(240 * var(--px))) minmax(0, 1fr); gap: 3rem; }
+  #who .who-brief { max-width: 30em; }
+  #who .who-statement { margin-top: 0; max-width: none; }
+  #who .who-statement p { max-width: 34em; }
+
+  /* Credentials: the title beside its four numbers, the list four across */
+  #certifications .wrap { display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: 6rem; }
+  #certifications .night-title { grid-column: 1; grid-row: 1; }
+  #certifications .clearance-line { grid-column: 1; grid-row: 2; }
+  #certifications .night-stats { grid-column: 2; grid-row: 1 / span 2; align-self: end; margin-top: 0; }
+  #certifications .certs { grid-column: 1 / -1; grid-template-columns: repeat(4, 1fr); }
+
+  /* Contact: the ask and the direct lines, the consulting tile, the form */
+  .contact { grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr); }
+  .contact-copy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto 1fr; column-gap: clamp(2.5rem, 6vw, 5rem); align-self: stretch; }
+  .contact-copy > p { grid-column: 1; grid-row: 1; }
+  .contact-copy > .consult { grid-column: 2; grid-row: 1 / span 2; align-self: start; margin-top: 0; }
+  .contact-copy > .direct { grid-column: 1; grid-row: 2; align-self: start; }
+  .contact-copy > .direct a { justify-content: flex-start; gap: 1.5rem; }
+  .contact-copy > .direct .direct-label { flex: 0 0 4.5rem; }
+  .form-row { grid-template-columns: 1fr 1fr; gap: calc(12 * var(--px)); }
+
+  /* Detail pages: the lead stands beside the title; the end card puts its action on the right */
+  .page-intro:not(.about-intro):not(.page-end), .about-intro > div { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); column-gap: var(--col-gap); align-items: end; }
+  .page-intro > .page-title, .page-intro > .headline-sub, .about-intro > div > .page-title, .about-intro > div > .headline-sub { grid-column: 1; }
+  .page-intro:not(.page-end) > .page-lead, .about-intro > div > .page-lead { grid-column: 2; grid-row: 1 / span 2; margin-top: 0; }
+  .page-intro > .jump { grid-column: 1 / -1; }
+  .page-cta { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 4rem; align-items: end; }
+  .page-cta .sec-head { margin-bottom: 0; }
+
+  /* AI page: the two text rows side by side */
+  .details:not(:has(.detail-shot)) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--col-gap); }
+  .details:not(:has(.detail-shot)) .detail { display: block; }
+  .details:not(:has(.detail-shot)) .detail-meta { position: static; margin-bottom: 1rem; }
+}
+
+/* 2100 and a window at least twice as wide as it is tall: the diagram fits the height, its caption beside it */
+@media (min-width: 2100px) and (min-aspect-ratio: 2/1) {
+  .topology { display: grid; grid-template-columns: fit-content(calc((100vh - 5rem) * 1.75)) minmax(15em, 1fr); column-gap: 3rem; align-items: start; }
+  .topology figcaption { flex-direction: column; align-items: flex-start; margin-top: 0; }
+  .topology figcaption span { max-width: 26em; }
+}
+
+/* 2400: skill groups in one row; About pictures move beside their paragraphs; roadmap stops and capability rows read across */
+@media (min-width: 2400px) {
+  .skill-groups { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .skill-group, .skill-group:nth-child(n+4) { grid-column: auto; }
+  .about-row { grid-template-columns: minmax(0, 1fr) 31em; gap: 3rem; }
+  .about-row-end > .prose { grid-column: 2; }
+  /* a roadmap stop reads across in three: heading, story, win */
+  .stop-body { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto 1fr auto; }
+  .stop-body > .stop-role { grid-row: 2 / span 2; }
+  .stop-body > .stop-role + p { grid-column: 2; grid-row: 1 / -1; margin-top: .3rem; }
+  .stop-body:has(> .stop-win + p) > .stop-role + p { grid-row: 1 / span 2; }
+  .stop-body > .stop-win { grid-column: 3; grid-row: 1 / -1; }
+  .stop-body > .stop-win + p { grid-column: 2; grid-row: 3; }
+  .stop-next .stop-body > h3 + p { grid-column: 2; grid-row: 1 / -1; margin-top: .3rem; }
+  .stop-next .stop-body > .stop-cta { grid-column: 3; grid-row: 1 / -1; }
+  /* Capabilities rows read across in four: heading, picture, what I deliver, tools */
+  body[data-page="capabilities"] .detail { grid-template-columns: minmax(0, var(--side)) minmax(0, 1fr); }
+  body[data-page="capabilities"] .detail > div:has(> .detail-shot) { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.5fr) minmax(0, 1fr); grid-template-rows: auto 1fr; }
+  body[data-page="capabilities"] .detail > div > .detail-shot + .detail-part { grid-column: 2; grid-row: 1 / -1; }
+  body[data-page="capabilities"] .detail > div > .detail-part + .detail-part { grid-column: 3; grid-row: 1; margin-top: 0; }
+  body[data-page="capabilities"] .detail > div > .detail-part ~ .section-more { grid-column: 3; grid-row: 2; justify-self: start; align-self: start; margin-top: 1.5rem; }
+}
+
+/* 2700: the client feature crops wider; the capability panel takes a third column; a track record role sets its
+   points in two columns beside a smaller picture */
+@media (min-width: 2700px) {
+  .client-feature .client-shot { aspect-ratio: 2 / 1; }
+  .js .cap-panel { grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr); grid-template-rows: auto auto 1fr; }
+  .js .cap-panel .stack { grid-column: 3; grid-row: 2; margin-top: .6rem; }
+  .js .cap-cta { grid-column: 3; grid-row: 3; align-self: end; }
+
+  .job { grid-template-columns: minmax(0, var(--side)) minmax(0, 1fr); }
+  .job > div:has(> .detail-shot) { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+  .job > div:has(> .detail-shot) .job-points { columns: 2; column-gap: 3.5rem; }
+  .job > div:has(> .detail-shot) .job-points li { break-inside: avoid; padding: 0 0 1.1rem; }
+}
+
+/* 2900: client cards on the projects page turn sideways; the credentials list six across */
+@media (min-width: 2900px) {
+  .clients:not(:has(.client-feature)) > .client:not(.client-wide) { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  .clients:not(:has(.client-feature)) > .client:not(.client-wide) .client-shot { height: 100%; }
+  .clients:not(:has(.client-feature)) > .client:not(.client-wide) .client-body { justify-content: center; }
+  .clients:not(:has(.client-feature)) > .client:not(.client-wide) .client-body p { flex-grow: 0; }
+  #certifications .certs { grid-template-columns: repeat(6, 1fr); }
+}
+
+/* 3000: a project reads across in five: heading, picture, the problem, what I built, where it stands */
+@media (min-width: 3000px) {
+  body[data-page="projects"] .detail { grid-template-columns: minmax(0, var(--side)) minmax(0, 1fr); }
+  body[data-page="projects"] .detail > div:has(> .detail-shot) { grid-template-columns: minmax(0, 1.15fr) repeat(3, minmax(0, 1fr)); grid-template-rows: auto; }
+  body[data-page="projects"] .detail > div > .detail-part { grid-column: auto; grid-row: 1; margin-top: 0; }
+}
+/* ==== Wide screens (end) ==== */

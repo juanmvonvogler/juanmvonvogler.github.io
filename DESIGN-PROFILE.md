@@ -48,7 +48,13 @@ Live in `styles.css` on `:root`, with dark values under `[data-theme="dark"]`.
 ## Imagery
 Isometric illustrations from Higgsfield (`gpt_image_2_5`, high, 3:2) on light gray with the green accent as the only colour, using existing assets as style references. New ones carry no text and fill about two thirds of the frame. After generation, greens are pulled to #1f5c49 and cool tints neutralized by script before an image ships. Illustrations that sit inside a card have their flat ground shifted to exactly #f5f5f7 so no seam shows in either theme. Every page uses its own pictures; a home teaser may share an image with its own detail entry, nothing else repeats. Client work stays flat screenshots.
 
+## Wide screens
+
+Above 1440 the layout uses the window. Side margins stay at the 220px they are at 1440, type and spacing ride one scaled pixel (1 at 1440, 1.3 at 3440, held back on short windows), grids take more columns as room appears, and running text stays under about 80 characters a line. Past roughly 3840 the page caps and centres.
+
+All of it lives in one block at the end of styles.css, between the `Wide screens (begin)` and `Wide screens (end)` comments. Every rule in that block sits inside a `min-width` query of 1441px or more, so 1440 and below render exactly as they did without it. New wide rules go inside that block and nowhere else.
+
 ## Done means
 - Screens: index, about, ai, capabilities, projects, track-record, 404
-- Widths: 390, 768, 1440, light and dark
+- Widths: 390, 768, 1440, 1920, 2560, 3440, light and dark
 - Before/after page: no
