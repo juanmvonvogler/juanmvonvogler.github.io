@@ -4,14 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Juan Vonvogler, Solutions/Systems Engineer</title>
-  <meta name="description" content="Juan Vonvogler, Solutions/Systems Engineer and Marine Corps veteran. I turn stuck technical problems into working systems across networks, identity, automation, and AI. Active Top Secret clearance, CCNP Enterprise." />
+  <meta name="description" content="Solutions/Systems Engineer and Marine Corps veteran with an active Top Secret clearance and CCNP Enterprise. Networks, identity, automation, and AI." />
   <meta name="theme-color" content="#ffffff" />
-  <script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}</script>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="canonical" href="https://juanvonvogler.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Juan Vonvogler" />
+  <meta property="og:title" content="Juan Vonvogler, Solutions/Systems Engineer" />
+  <meta property="og:description" content="Solutions/Systems Engineer and Marine Corps veteran with an active Top Secret clearance and CCNP Enterprise. Networks, identity, automation, and AI." />
+  <meta property="og:url" content="https://juanvonvogler.com/" />
+  <meta property="og:image" content="https://juanvonvogler.com/assets/og-card.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Juan Vonvogler, Solutions/Systems Engineer. Active Top Secret, CCNP Enterprise, Woodbridge, VA." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') { document.documentElement.dataset.theme = t; if (t === 'dark') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000000'); } } catch (e) {}</script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Person", "name": "Juan Vonvogler", "jobTitle": "Solutions/Systems Engineer", "url": "https://juanvonvogler.com/", "image": "https://juanvonvogler.com/assets/headshot.png", "address": {"@type": "PostalAddress", "addressLocality": "Woodbridge", "addressRegion": "VA", "addressCountry": "US"}, "knowsAbout": ["Solutions engineering", "Enterprise networking", "Cisco ISE", "Network automation", "Unified communications", "AI agents"]}
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20261110" />
 </head>
 <body>
 
-  <a href="#home" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <nav>
     <div class="nav-inner">
@@ -22,15 +39,14 @@
         <li><a href="#projects" data-tab="projects">Projects</a></li>
         <li><a href="ai.html" data-tab="ai">AI</a></li>
         <li><a href="#who" data-tab="who">Who I Am</a></li>
-        <li><a href="#track-record" data-tab="track-record">My Journey</a></li>
-        <li><a href="#certifications" data-tab="certifications">Credentials</a></li>
-        <li><a href="#contact" data-tab="contact">Contact</a></li>
+        <li><a href="#track-record" data-tab="track-record">Track Record</a></li>
       </ul>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" hidden><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
       </button>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <a href="#contact" class="nav-cta">Contact</a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
         <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/></svg>
         <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
       </button>
@@ -38,16 +54,19 @@
     </div>
   </nav>
 
+  <main id="main" tabindex="-1">
+
   <!-- Hero -->
   <section id="home">
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
     <div class="hero-text wrap">
-      <h1>Juan Vonvogler<span class="hero-role">Solutions/Systems Engineer.</span></h1>
-      <p class="hero-sub">Bring me the technical problem your team hasn't been able to close out. I'll turn it into a working system: networks, identity, automation, and the tooling that holds it together. Comfortable in front of a room and behind a CLI.</p>
-      <p class="hero-meta">Active Top Secret · CCNP Enterprise · Woodbridge, VA</p>
+      <h1>Juan Vonvogler <span class="hero-role">Solutions/Systems Engineer.</span></h1>
+      <p class="hero-sub">I take the technical problems teams and businesses haven’t been able to close out and turn them into working systems: networks, identity, automation, and the tooling that holds them together. Comfortable in front of a room and behind a CLI.</p>
+      <p class="hero-meta">Marine Corps veteran&nbsp;· Active&nbsp;Top&nbsp;Secret&nbsp;· CCNP&nbsp;Enterprise&nbsp;· Woodbridge,&nbsp;VA</p>
       <div class="hero-cta">
         <a href="#contact" class="pill">Bring me a problem</a>
-        <a href="#capabilities" class="more">See what I deliver</a>
+        <a href="track-record.html" class="more">Hiring? See my track record</a>
+        <button class="motion-toggle" type="button">Pause motion</button>
       </div>
     </div>
   </section>
@@ -55,49 +74,48 @@
   <!-- Approach -->
   <section id="approach" class="block">
     <div class="wrap">
-      <header class="sec-head rise"><h2 class="headline">Bring me the problem.</h2><p class="headline-sub">I'll bring the plan, the build, and the cutover.</p></header>
-      <div class="steps swoosh-l">
-        <div tabindex="0" role="button" aria-expanded="false" class="step has-peek">
-          <img src="assets/step-discover.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a requirements checklist beside a small network sketch" />
+      <header class="sec-head rise"><h2 class="headline">Bring me the problem.</h2><p class="headline-sub">I’ll bring the plan, the&nbsp;build, and the&nbsp;cutover.</p></header>
+      <div class="steps" data-stagger>
+        <div class="step has-peek">
+          <img src="assets/step-discover.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a clipboard checklist beside a tablet showing a small network sketch of three nodes" />
           <div class="step-body">
             <h3>Discover</h3>
             <p>I start with the people who own the problem, then translate what they need into a design.</p>
           </div>
-            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
-            <div class="peek" role="region" aria-label="How that looks: Discover">
-              <h4>How that looks</h4>
+            <button class="peek-hint" type="button" aria-expanded="false" aria-controls="peek-discover"><span class="hint-label">How that looks<span class="visually-hidden"> in Discover</span></span><span class="hint-close">Close<span class="visually-hidden"> Discover, in practice</span></span></button>
+            <div class="peek" id="peek-discover" role="region" aria-label="Discover, in practice">
+              <h4>Discover, in practice</h4>
               <ul>
-              <li>Site surveys and discovery sessions with customers and site POCs</li>
+              <li>Site surveys and discovery sessions with customers and site points of contact across a 100+ site enterprise</li>
               <li>Operational requirements turned into VLAN, firewall, and identity designs</li>
-              <li>Stakeholders across a 100+ site enterprise</li>
               </ul>
             </div>
         </div>
-        <div tabindex="0" role="button" aria-expanded="false" class="step has-peek">
+        <div class="step has-peek">
           <img src="assets/step-build.jpg" width="1024" height="688" loading="lazy" alt="Illustration of lab network appliances connected to a validated check mark" />
           <div class="step-body">
             <h3>Build</h3>
-            <p>Designs get proven in a lab and automated before they touch production.</p>
+            <p>Designs get proven in a lab and automated before they touch&nbsp;production.</p>
           </div>
-            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
-            <div class="peek" role="region" aria-label="How that looks: Build">
-              <h4>How that looks</h4>
+            <button class="peek-hint" type="button" aria-expanded="false" aria-controls="peek-build"><span class="hint-label">How that looks<span class="visually-hidden"> in Build</span></span><span class="hint-close">Close<span class="visually-hidden"> Build, in practice</span></span></button>
+            <div class="peek" id="peek-build" role="region" aria-label="Build, in practice">
+              <h4>Build, in practice</h4>
               <ul>
-              <li>An EVE-NG lab that mirrors the production topology</li>
+              <li>An EVE-NG lab built to production standard</li>
               <li>Ansible playbooks and TACACS+ workflows validated there first</li>
               <li>Repetitive work turned into PowerShell and Python pipelines</li>
               </ul>
             </div>
         </div>
-        <div tabindex="0" role="button" aria-expanded="false" class="step has-peek">
-          <img src="assets/step-deliver.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a cutover runbook with every step complete and zero user impact" />
+        <div class="step has-peek">
+          <img src="assets/step-deliver.jpg" width="1024" height="688" loading="lazy" alt="Illustration of two switches joined by two parallel links under a crescent moon: an overnight cutover" />
           <div class="step-body">
             <h3>Deliver</h3>
-            <p>A cutover nobody notices. At DLA Pearl Harbor, every site circuit moved to redundant 10 Gbps links in one night, with zero user impact.</p>
+            <p>A cutover nobody notices, and the documentation that keeps it that way.</p>
           </div>
-            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
-            <div class="peek" role="region" aria-label="How that looks: Deliver">
-              <h4>How that looks</h4>
+            <button class="peek-hint" type="button" aria-expanded="false" aria-controls="peek-deliver"><span class="hint-label">How that looks<span class="visually-hidden"> in Deliver</span></span><span class="hint-close">Close<span class="visually-hidden"> Deliver, in practice</span></span></button>
+            <div class="peek" id="peek-deliver" role="region" aria-label="Deliver, in practice">
+              <h4>Deliver, in practice</h4>
               <ul>
               <li>Change plans and cutover runbooks approved by leadership</li>
               <li>Situation reports to leadership after the Hawaii and Japan projects</li>
@@ -106,238 +124,192 @@
             </div>
         </div>
       </div>
-      <div class="stats swoosh-r">
-        <div class="stat"><span class="stat-num">7</span><span class="stat-label">Years in enterprise IT</span></div>
-        <div class="stat"><span class="stat-num">100+</span><span class="stat-label">Sites supported</span></div>
-        <div class="stat"><span class="stat-num">9</span><span class="stat-label">Active certifications</span></div>
-        <div class="stat"><span class="stat-num">TS</span><span class="stat-label">Active clearance</span></div>
+      <div class="zero rise">
+        <p class="zero-num" aria-hidden="true">0</p>
+        <p class="zero-text"><strong><span class="visually-hidden">Zero </span>user impact.</strong> Every DLA Pearl&nbsp;Harbor site circuit moved onto redundant 10&nbsp;Gbps links in one overnight cutover.</p>
       </div>
     </div>
   </section>
 
-  <!-- Capabilities -->
+  <!-- Capabilities: pick one, see the proof -->
   <section id="capabilities" class="block">
     <div class="wrap">
-      <header class="sec-head rise"><h2 class="headline">What I bring to your team.</h2><p class="headline-sub">Eight capabilities, one engineer.</p></header>
-      <div class="bento swoosh-l">
-          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek big">
-            <h3>Solutions &amp; Presales</h3>
-            <p class="value">I sit between the people with the problem and the people who build the fix: discovery, solution design, and the briefing that gets it approved.</p>
+      <header class="sec-head rise"><h2 class="headline">What I can own on your team.</h2><p class="headline-sub">Eight capabilities, one engineer.</p></header>
+      <div class="caps swoosh-l" data-caps>
+        <div class="cap is-active">
+          <h3 class="cap-head"><button class="cap-name" type="button" id="cap-1-btn" aria-expanded="true" aria-controls="cap-1">Solutions &amp; Presales</button></h3>
+          <div class="cap-panel" id="cap-1" role="region" aria-labelledby="cap-1-btn">
+            <p class="cap-value">I sit between the people with the problem and the people who build the fix, and I write the plan both sides sign off on.</p>
+            <h4>Where I’ve done it</h4>
             <ul>
-              <li>Technical discovery</li>
-              <li>Requirements gathering</li>
-              <li>Solution design</li>
-              <li>Executive briefings</li>
-              <li>Proof of concept validation</li>
-              <li>Documentation &amp; enablement</li>
-            </ul>
-            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
-            <div class="peek" role="region" aria-label="Where I have done it: Solutions and Presales">
-              <h4>Where I have done it</h4>
-              <ul>
-              <li>Discovery with site POCs and government stakeholders across a 100+ site enterprise</li>
+              <li>A merchant services territory I ran alone: 10 to 20 businesses a day, from discovery to proposal, objections, and the close</li>
+              <li>Discovery with site points of contact and government stakeholders across a 100+ site enterprise</li>
               <li>Leadership briefings and situation reports on execution, risk, and next actions</li>
-              <li>The business case that won GitHub Enterprise licensing for my team</li>
-              </ul>
-            </div>
-          </div>
-          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek big">
-            <h3>Automation &amp; DevSecOps</h3>
-            <p class="value">I turn repetitive work into pipelines, so audits, configurations, and changes run the same way every time.</p>
-            <ul>
-              <li>Ansible / OpenText NA</li>
-              <li>Python / PowerShell</li>
-              <li>Git / GitHub Enterprise</li>
-              <li>Jira + ServiceNow integration</li>
-              <li>STIG CKL automation</li>
-              <li>EVE-NG / GNS3 labs</li>
+              <li>Vendor demo and proof of concept environments, built in my EVE-NG lab</li>
             </ul>
-            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
-            <div class="peek" role="region" aria-label="Where I have done it: Automation and DevSecOps">
-              <h4>Where I have done it</h4>
-              <ul>
+            <p class="stack">Technical&nbsp;discovery&nbsp;· Requirements&nbsp;gathering&nbsp;· Solution&nbsp;design&nbsp;· Executive&nbsp;briefings&nbsp;· Proof of concept validation&nbsp;· Documentation &amp; enablement</p>
+            <a class="more cap-cta" href="#contact" data-topic="Solutions &amp; Presales">Bring me a problem like this</a>
+          </div>
+        </div>
+        <div class="cap">
+          <h3 class="cap-head"><button class="cap-name" type="button" id="cap-2-btn" aria-expanded="false" aria-controls="cap-2">Automation &amp; DevSecOps</button></h3>
+          <div class="cap-panel" id="cap-2" role="region" aria-labelledby="cap-2-btn">
+            <p class="cap-value">I turn repetitive work into pipelines, so audits, configurations, and changes run the same way every time.</p>
+            <h4>Where I’ve done it</h4>
+            <ul>
               <li>STIG reporting automated across 100+ CKL files, deployed at DLA</li>
               <li>The configuration review repository behind a DevSecOps program</li>
               <li>Ansible playbooks validated in a lab before they touch production</li>
-              </ul>
-            </div>
+            </ul>
+            <p class="stack">Ansible&nbsp;· OpenText&nbsp;NA&nbsp;· Python&nbsp;· PowerShell&nbsp;· Git&nbsp;· GitHub&nbsp;Enterprise&nbsp;· Jira&nbsp;+&nbsp;ServiceNow&nbsp;· <span class="nowrap">EVE-NG</span>&nbsp;· GNS3</p>
+            <a class="more cap-cta" href="#contact" data-topic="Automation &amp; DevSecOps">Bring me a problem like this</a>
           </div>
-          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
-            <h3>Networking</h3>
-            <p class="value">Enterprise routing, switching, and WAN, from the campus core to forward deployed SatCom sites.</p>
-            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
-            <div class="peek" role="region" aria-label="Tools &amp; technologies: Networking">
-              <h4>Tools &amp; technologies</h4>
-              <ul>
-              <li>BGP, OSPF, EIGRP, STP</li>
-              <li>Cisco Catalyst, Nexus</li>
-              <li>VLAN / 802.1Q / VPC / LACP</li>
-              <li>MPLS / DMVPN / IPSec</li>
-              <li>SatCom / StarShield integration</li>
-              </ul>
-            </div>
+        </div>
+        <div class="cap">
+          <h3 class="cap-head"><button class="cap-name" type="button" id="cap-3-btn" aria-expanded="false" aria-controls="cap-3">Networking</button></h3>
+          <div class="cap-panel" id="cap-3" role="region" aria-labelledby="cap-3-btn">
+            <p class="cap-value">Enterprise routing, switching, and WAN, from the campus core to forward deployed SatCom sites.</p>
+            <h4>Where I’ve done it</h4>
+            <ul>
+              <li>VLAN standards across distributed DoD sites, adopted as the team SOP</li>
+              <li>DMVPN hub and spoke designs linking forward deployed and CONUS sites</li>
+              <li>Tier 3 DMVPN and IPsec troubleshooting across hundreds of DoD locations, including forward deployed SatCom sites</li>
+            </ul>
+            <p class="stack">BGP&nbsp;· OSPF&nbsp;· EIGRP&nbsp;· STP&nbsp;· Cisco&nbsp;Catalyst&nbsp;· Nexus&nbsp;· 802.1Q&nbsp;· vPC&nbsp;· LACP&nbsp;· MPLS&nbsp;· DMVPN&nbsp;· IPsec&nbsp;· SatCom</p>
+            <a class="more cap-cta" href="#contact" data-topic="Networking">Bring me a problem like this</a>
           </div>
-          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
-            <h3>Data Center &amp; Systems</h3>
-            <p class="value">Fabric and virtualization work that keeps critical workloads running.</p>
-            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
-            <div class="peek" role="region" aria-label="Tools &amp; technologies: Data Center and Systems">
-              <h4>Tools &amp; technologies</h4>
-              <ul>
-              <li>Cisco ACI / APIC / NDO</li>
-              <li>Tenant, EPG, BD provisioning</li>
-              <li>VMware vSphere / vCenter</li>
-              <li>Cisco UCS Fabric Interconnect</li>
-              <li>Active Directory / DNS</li>
-              </ul>
-            </div>
+        </div>
+        <div class="cap">
+          <h3 class="cap-head"><button class="cap-name" type="button" id="cap-4-btn" aria-expanded="false" aria-controls="cap-4">Data Center &amp; Systems</button></h3>
+          <div class="cap-panel" id="cap-4" role="region" aria-labelledby="cap-4-btn">
+            <p class="cap-value">Cisco ACI fabrics and VMware environments for workloads that can’t go down.</p>
+            <h4>Where I’ve done it</h4>
+            <ul>
+              <li>Cisco ACI/APIC fabrics: tenant provisioning, EPG/BD policy, and Multi-Pod troubleshooting</li>
+              <li>VMware vSphere/vCenter: virtual switching and vMotion for critical workloads</li>
+              <li>VLAN migrations through ACI and APIC across remote sites</li>
+            </ul>
+            <p class="stack">Cisco&nbsp;ACI&nbsp;· APIC&nbsp;· NDO&nbsp;· VMware&nbsp;vSphere&nbsp;· vCenter&nbsp;· Cisco&nbsp;UCS&nbsp;· Active&nbsp;Directory&nbsp;· DNS</p>
+            <a class="more cap-cta" href="#contact" data-topic="Data Center &amp; Systems">Bring me a problem like this</a>
           </div>
-          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
-            <h3>Identity &amp; Security</h3>
-            <p class="value">Centralized identity and hardened devices: who gets in, and how that gets proven.</p>
-            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
-            <div class="peek" role="region" aria-label="Tools &amp; technologies: Identity and Security">
-              <h4>Tools &amp; technologies</h4>
-              <ul>
-              <li>Cisco ISE / 802.1x / TACACS+</li>
-              <li>Cisco ASA / Firepower NGFW</li>
-              <li>Check Point firewall (CCSA)</li>
-              <li>DISA STIG compliance</li>
-              <li>Zero Trust architecture</li>
-              </ul>
-            </div>
+        </div>
+        <div class="cap">
+          <h3 class="cap-head"><button class="cap-name" type="button" id="cap-5-btn" aria-expanded="false" aria-controls="cap-5">Identity &amp; Security</button></h3>
+          <div class="cap-panel" id="cap-5" role="region" aria-labelledby="cap-5-btn">
+            <p class="cap-value">Centralized identity and hardened devices: who gets in, and how that gets proven.</p>
+            <h4>Where I’ve done it</h4>
+            <ul>
+              <li>An ISE/TACACS+ migration that puts device logins across a 100+ site enterprise under centralized identity</li>
+              <li>Cisco ISE 802.1X across wired and wireless enterprise segments</li>
+              <li>DISA STIG remediation, plus Check Point and ASA rule base audits</li>
+            </ul>
+            <p class="stack">Cisco&nbsp;ISE&nbsp;· 802.1X&nbsp;· TACACS+&nbsp;· Cisco&nbsp;ASA&nbsp;· Firepower&nbsp;NGFW&nbsp;· Check&nbsp;Point&nbsp;R81&nbsp;· DISA&nbsp;STIG&nbsp;· Zero&nbsp;Trust</p>
+            <a class="more cap-cta" href="#contact" data-topic="Identity &amp; Security">Bring me a problem like this</a>
           </div>
-          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
-            <h3>Unified Communications</h3>
-            <p class="value">Voice that survives the migration: dial plans, session border controllers, and cutovers nobody notices.</p>
-            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
-            <div class="peek" role="region" aria-label="Tools &amp; technologies: Unified Communications">
-              <h4>Tools &amp; technologies</h4>
-              <ul>
-              <li>Cisco CUCM / dial plan</li>
-              <li>Oracle SBC (Acme Packet 3900/4600)</li>
-              <li>SIP trunking / TLS/SRTP</li>
-              <li>VoIP QoS &amp; CAC policies</li>
-              <li>RightFax / Fax-over-IP</li>
-              </ul>
-            </div>
+        </div>
+        <div class="cap">
+          <h3 class="cap-head"><button class="cap-name" type="button" id="cap-6-btn" aria-expanded="false" aria-controls="cap-6">Unified Communications</button></h3>
+          <div class="cap-panel" id="cap-6" role="region" aria-labelledby="cap-6-btn">
+            <p class="cap-value">Voice that survives the migration: dial plans, session border controllers, and zero downtime cutovers.</p>
+            <h4>Where I’ve done it</h4>
+            <ul>
+              <li>CUCM dial plan, call routing, and SIP trunk designs built from customer requirements</li>
+              <li>Oracle session border controllers for classified and unclassified deployments</li>
+              <li>VoIP migrations and RightFax integrations with zero downtime cutovers</li>
+            </ul>
+            <p class="stack">Cisco&nbsp;CUCM&nbsp;· Oracle&nbsp;SBC (Acme&nbsp;Packet&nbsp;3900/4600)&nbsp;· SIP&nbsp;· TLS/SRTP&nbsp;· QoS&nbsp;· Call&nbsp;admission&nbsp;control&nbsp;· RightFax</p>
+            <a class="more cap-cta" href="#contact" data-topic="Unified Communications">Bring me a problem like this</a>
           </div>
-          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
-            <h3>Monitoring &amp; Analysis</h3>
-            <p class="value">Finding the actual fault, packet by packet, and documenting it so it stays fixed.</p>
-            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
-            <div class="peek" role="region" aria-label="Tools &amp; technologies: Monitoring and Analysis">
-              <h4>Tools &amp; technologies</h4>
-              <ul>
-              <li>nGenius packet analysis</li>
-              <li>SolarWinds</li>
-              <li>Wireshark / PCAP analysis</li>
-              <li>ServiceNow ticketing</li>
-              <li>Visio design documentation</li>
-              </ul>
-            </div>
+        </div>
+        <div class="cap">
+          <h3 class="cap-head"><button class="cap-name" type="button" id="cap-7-btn" aria-expanded="false" aria-controls="cap-7">Monitoring &amp; Analysis</button></h3>
+          <div class="cap-panel" id="cap-7" role="region" aria-labelledby="cap-7-btn">
+            <p class="cap-value">Finding the actual fault, packet by packet, and documenting it so it stays fixed.</p>
+            <h4>Where I’ve done it</h4>
+            <ul>
+              <li>Phone registration failures traced through NHRP, IKEv2, SIP ALG, NAT, and QoS config deltas</li>
+              <li>Packet analysis and a documented root cause for faults that kept coming back</li>
+            </ul>
+            <p class="stack">nGenius&nbsp;· SolarWinds&nbsp;· Wireshark&nbsp;· ServiceNow&nbsp;· Visio</p>
+            <a class="more cap-cta" href="#contact" data-topic="Monitoring &amp; Analysis">Bring me a problem like this</a>
           </div>
-          <div tabindex="0" role="button" aria-expanded="false" class="tile has-peek">
-            <h3>Cloud &amp; AI</h3>
-            <p class="value">Applied AI and cloud: retrieval pipelines, MCP connectors, and agents that do real work.</p>
-            <p class="peek-hint" aria-hidden="true"><span class="hint-hover">Hover for details</span><span class="hint-tap">Tap for details</span></p>
-            <div class="peek" role="region" aria-label="Tools &amp; technologies: Cloud and AI">
-              <h4>Tools &amp; technologies</h4>
-              <ul>
-              <li>Microsoft Azure (AZ-900)</li>
-              <li>AWS environments</li>
-              <li>PostgreSQL / pgvector</li>
-              <li>Python RAG / LLM integration</li>
-              <li>MCP connectors / AI agents</li>
-              </ul>
-            </div>
+        </div>
+        <div class="cap">
+          <h3 class="cap-head"><button class="cap-name" type="button" id="cap-8-btn" aria-expanded="false" aria-controls="cap-8">Cloud &amp; AI</button></h3>
+          <div class="cap-panel" id="cap-8" role="region" aria-labelledby="cap-8-btn">
+            <p class="cap-value">Applied AI and cloud: retrieval on PostgreSQL with pgvector, MCP connectors, and agents I run every day.</p>
+            <h4>Where I’ve done it</h4>
+            <ul>
+              <li>A memory system on PostgreSQL with pgvector, reached from Claude through MCP connectors</li>
+              <li>The Multi-Agent AI Operating System: Claude Code agents for email, calendar, and planning, in daily use</li>
+              <li>A four stage pipeline every new agent goes through: research, design, build, QA</li>
+            </ul>
+            <p class="stack">Microsoft&nbsp;Azure&nbsp;· AWS&nbsp;· DigitalOcean&nbsp;· PostgreSQL&nbsp;· pgvector&nbsp;· Supabase&nbsp;· Python&nbsp;· Claude&nbsp;Code&nbsp;· MCP</p>
+            <a class="more cap-cta" href="#contact" data-topic="Cloud &amp; AI">Bring me a problem like this</a>
           </div>
+        </div>
       </div>
       <a href="capabilities.html" class="more section-more">Explore every capability</a>
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- Projects: proof first -->
   <section id="projects" class="block">
     <div class="wrap">
-      <header class="sec-head rise"><h2 class="headline">Solutions I've delivered.</h2><p class="headline-sub">On the job and on my own time.</p></header>
-      <div class="built-grid swoosh-l">
+      <header class="sec-head rise"><h2 class="headline">Solutions I’ve delivered.</h2><p class="headline-sub">On the job and on my own time.</p></header>
+      <div class="built-grid" data-stagger>
         <article class="built-tile">
-          <img src="assets/built-stig.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a STIG compliance report showing 92 percent compliant" />
+          <img src="assets/built-stig.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a STIG compliance report built from CKL checklist results" />
           <div class="built-body">
-            <h3>STIG PowerShell Automation Engine</h3>
-            <p>Days of manual checklist review, turned into one report. I built a PowerShell pipeline that parses and evaluates 100+ STIG CKL files and produces the compliance report. It was deployed in production at DLA.</p>
-            <p class="stack">PowerShell · DISA STIG · CKL Parsing · Deployed at DLA</p>
+            <h3><a class="card-link" href="projects.html#stig">STIG PowerShell Automation Engine</a></h3>
+            <p>Days of manual checklist review, turned into one report. I built a PowerShell pipeline that parses and evaluates 100+ STIG CKL files and produces the compliance report.</p>
+            <p class="stack">PowerShell&nbsp;· DISA&nbsp;STIG&nbsp;· CKL&nbsp;Parsing&nbsp;· Deployed&nbsp;at&nbsp;DLA</p>
           </div>
         </article>
         <article class="built-tile">
-          <img src="assets/built-config-review.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a Cisco configuration diff moving a switchport from VLAN 6 to VLAN 2504" />
+          <img src="assets/built-config-review.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a Cisco configuration diff that moves a switchport to a new VLAN, with an Approve button" />
           <div class="built-body">
-            <h3>GitHub Enterprise Configuration Review</h3>
+            <h3><a class="card-link" href="projects.html#github-review">GitHub Enterprise Configuration Review</a></h3>
             <p>A tool request that became a program. I wrote the business case that won GitHub Enterprise licensing, then designed the repository and branch structure for network configuration version control.</p>
-            <p class="stack">GitHub Enterprise · Git · DevSecOps · Deployed at DLA</p>
+            <p class="stack">GitHub&nbsp;Enterprise&nbsp;· Git&nbsp;· DevSecOps&nbsp;· Deployed&nbsp;at&nbsp;DLA</p>
           </div>
         </article>
         <article class="built-tile">
-          <img src="assets/built-eve-ng.jpg" width="1024" height="688" loading="lazy" alt="Isometric lab topology with a router, two switches, ISE, AD/DNS, and an Ansible node" />
+          <img src="assets/built-eve-ng.jpg" width="1024" height="688" loading="lazy" alt="Isometric lab topology with a router, two switches, ISE, AD/DNS, an Ansible node, and a RADIUS/NTP server" />
           <div class="built-body">
-            <h3>EVE-NG Automation Lab</h3>
-            <p>Production changes, rehearsed first. My EVE-NG lab mirrors a production network, so playbooks, TACACS+ workflows, and routing changes are proven before they go live.</p>
-            <p class="stack">EVE-NG · Ansible · ISE/TACACS+ · Cisco IOS · In use</p>
+            <h3><a class="card-link" href="projects.html#eve-ng">EVE-NG Automation Lab</a></h3>
+            <p>My EVE-NG lab is built to production standard, so playbooks, TACACS+ workflows, and routing changes are proven before they go live.</p>
+            <p class="stack"><span class="nowrap">EVE-NG</span>&nbsp;· Ansible&nbsp;· ISE/TACACS+&nbsp;· Cisco&nbsp;IOS&nbsp;· In&nbsp;use</p>
           </div>
         </article>
         <article class="built-tile">
           <img src="assets/built-agents.jpg" width="1024" height="688" loading="lazy" alt="Isometric illustration of AI agents for email, calendar, documents, and settings around a central orchestrator" />
           <div class="built-body">
-            <h3>Multi-Agent AI Operating System</h3>
-            <p>Agents that handle the busywork. A folder agent system run by Claude Code, with a Supabase Postgres second brain, two Next.js dashboards, a scheduled morning agent, and a four stage pipeline every new agent goes through.</p>
-            <p class="stack">Claude Code · Supabase Postgres/pgvector · Next.js · Wispr Flow · In daily use</p>
-          </div>
-        </article>
-        <article class="built-tile">
-          <img src="assets/built-second-brain.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a personal AI memory search returning notes, calendar, and email results from pgvector" />
-          <div class="built-body">
-            <h3>AI Second Brain</h3>
-            <p>My own AI memory layer. PostgreSQL with pgvector and Voyage AI embeddings, reached from Claude through MCP connectors for semantic recall, calendars, and project tracking.</p>
-            <p class="stack">PostgreSQL/pgvector · Python · Supabase · Voyage AI · MCP Connectors · In use</p>
-          </div>
-        </article>
-        <article class="built-tile">
-          <img src="assets/built-python.jpg" width="1024" height="688" loading="lazy" alt="Illustration of a terminal running a Python network audit with all devices compliant" />
-          <div class="built-body">
-            <h3>Python Network Automation Framework</h3>
-            <p>Device management and compliance checks as code. Python tooling that integrates with Ansible and REST APIs for configuration auditing at enterprise scale.</p>
-            <p class="stack">Python · Ansible · REST APIs · Netmiko · In progress</p>
+            <h3><a class="card-link" href="projects.html#agents">Multi-Agent AI Operating System</a></h3>
+            <p>My inbox, calendar, and week run on agents I built. They work in Claude Code, share a Supabase memory with pgvector search, and have the day on one dashboard before I wake up.</p>
+            <p class="stack">Claude&nbsp;Code&nbsp;· Supabase&nbsp;Postgres/pgvector&nbsp;· Next.js&nbsp;· Wispr&nbsp;Flow&nbsp;· In&nbsp;daily&nbsp;use</p>
           </div>
         </article>
       </div>
-      <h3 class="subhead rise">Websites for real businesses.</h3>
-      <div class="clients swoosh-r">
-        <article class="client">
-          <img class="client-shot" src="assets/client-peptek.jpg" width="1200" height="750" loading="lazy" alt="PepTek homepage after the September 2026 revamp" />
+      <h3 class="subhead rise">Websites for small businesses.</h3>
+      <div class="clients" data-stagger>
+        <article class="client client-feature">
+          <img class="client-shot" src="assets/client-divine.jpg" width="1200" height="750" loading="lazy" alt="Divine Assisted Care homepage: a nurse with a client at home under the headline Compassionate In-Home Mental Health Nursing Care" />
           <div class="client-body">
-            <h3>PepTek LLC</h3>
-            <p>Research peptide store, owned with my partner and hosted on our own DigitalOcean server: WordPress and WooCommerce, a React home page, and agents that help run the site and handle support. I directed its September 2026 revamp. Live at pep-tek.com.</p>
-            <p class="stack">DigitalOcean · WordPress/WooCommerce · React · Bankful · Agents</p>
+            <h4><a class="card-link" href="projects.html#divine">Divine Assisted Care LLC</a></h4>
+            <p>Mental health nursing in the home. New patients reach them through a custom intake and inquiry form built with HIPAA in mind. I built the site and its backend, then ran the server and hosting after launch.</p>
+            <p class="stack">Custom&nbsp;Backend&nbsp;· Forms&nbsp;· DNS/Hosting</p>
           </div>
         </article>
-        <article class="client">
-          <img class="client-shot" src="assets/client-divine.jpg" width="1200" height="750" loading="lazy" alt="Divine Assisted Care homepage, designed and built by Juan" />
+        <article class="client client-wide">
           <div class="client-body">
-            <h3>Divine Assisted Care LLC</h3>
-            <p>Mental health nursing in the home. I built their professional services site with a custom intake and inquiry form, backend form handling, and data collection built with HIPAA in mind, then ran the server and hosting after launch.</p>
-            <p class="stack">Custom Backend · Forms · DNS/Hosting</p>
-          </div>
-        </article>
-        <article class="client">
-          <div class="client-body">
-            <h3>JBExclusive Studios</h3>
-            <p>Barbershop. I built their booking platform: online appointment scheduling, a service catalog, and client management, on WIX with custom CSS. I also managed the domain, DNS, and hosting.</p>
-            <p class="stack">WIX · Custom CSS · DNS/Hosting</p>
+            <h4><a class="card-link" href="projects.html#jbexclusive">JBExclusive Studios</a></h4>
+            <p>Barbershop. Clients book their appointments online. I built the booking platform (scheduling, a service catalog, and client management) on Wix with custom CSS, and managed the domain, DNS, and hosting.</p>
+            <p class="stack">Wix&nbsp;· Custom&nbsp;CSS&nbsp;· DNS/Hosting</p>
           </div>
         </article>
       </div>
-      <p class="section-links"><a href="projects.html" class="more">See every project in detail</a><a href="ai.html" class="more">See everything I've built with AI</a></p>
+      <p class="section-links"><a href="projects.html" class="more">See every project in detail</a><a href="ai.html" class="more">See everything I’ve built with AI</a></p>
     </div>
   </section>
 
@@ -346,16 +318,10 @@
     <div class="wrap">
       <header class="sec-head rise"><h2 class="headline">Who I am.</h2><p class="headline-sub">And what I stand for.</p></header>
       <div class="who swoosh-l">
-        <figure class="who-photo"><img src="assets/headshot.png" width="406" height="406" alt="Juan Vonvogler" onerror="this.closest('.who, .about-top').classList.add('no-photo'); this.parentNode.remove();" /></figure>
+        <figure class="who-photo"><img src="assets/headshot.webp" width="406" height="406" loading="lazy" decoding="async" alt="Juan Vonvogler" onerror="this.closest('.who, .about-top').classList.add('no-photo'); this.parentNode.remove();" /></figure>
         <div class="who-brief">
-          <p class="lead">I'm a Marine Corps veteran and a solutions and systems engineer based in Woodbridge, VA.</p>
-          <p>Five years in the infantry with 2/5 Marines, then IT in 2020. Since then I've designed, built, and supported enterprise technology for the DoD and the teams around it, and I sold merchant services door to door along the way. I'm finishing my B.S. in Cyber Security at UMGC (December 2026), with the CCIE in my sights.</p>
-          <div class="beliefs">
-            <div class="belief"><h3>Never settle for average.</h3><p>Showing up, and pushing past what I thought I was capable of.</p></div>
-            <div class="belief"><h3>Be a beginner on purpose.</h3><p>Pick something hard and stay in it anyway.</p></div>
-            <div class="belief"><h3>Make it run leaner.</h3><p>Add more to the plate by making what's already there run better.</p></div>
-            <div class="belief"><h3>Stay a student.</h3><p>The deeper I go, the more there is to learn.</p></div>
-          </div>
+          <p class="lead">I’m a Marine Corps veteran and a Solutions/Systems Engineer based in Woodbridge, VA.</p>
+          <p>Since leaving the Marines I’ve designed, built, and supported enterprise technology for the DoD and the teams around it. I’m finishing my B.S. in Cyber Security at UMGC (December&nbsp;2026), with the CCIE in my sights.</p>
         </div>
       </div>
       <div class="who-statement mindset-body">
@@ -370,49 +336,58 @@
     </div>
   </section>
 
-  <!-- Track record: a roadmap that fills as you scroll -->
+  <!-- Track record: a roadmap that fills as you scroll, with a packet riding the fill -->
   <section id="track-record" class="block">
     <div class="wrap">
-      <header class="sec-head rise"><h2 class="headline">My journey.</h2><p class="headline-sub">Four stops, and the biggest thing I delivered at each.</p></header>
+      <header class="sec-head rise"><h2 class="headline">Track record.</h2><p class="headline-sub">The biggest win at each stop so far.</p></header>
       <div class="roadmap-wrap">
       <span class="road-track" aria-hidden="true"></span>
       <span class="road-fill" aria-hidden="true"></span>
+      <span class="road-tip" aria-hidden="true"></span>
       <ol class="roadmap">
-        <li class="stop rise">
+        <li class="stop">
           <div class="stop-when">2014 – 2019</div>
           <div class="stop-body">
             <h3>Where it started.</h3>
-            <p class="stop-role"><strong>U.S. Marine Corps</strong> · Rifleman / Marine Security Force Guard, 2/5 Marines</p>
+            <p class="stop-role"><strong>U.S.&nbsp;Marine Corps</strong> · Rifleman, 2/5 Marines · Marine Security Force Guard, Kings Bay</p>
             <p>Five years in the infantry. In the last two, I taught myself networking on Cisco Packet Tracer and home labs, and helped my unit rework its processes and SOPs.</p>
-            <p class="stop-win"><strong>Biggest win:</strong> as a career planner in my final year, I guided Marines one on one through their reenlistment decisions.</p>
-            <p class="stop-note">On the way out: a service desk at Perspecta, promoted to Tier 2 within a year, and a sales territory I walked door to door, where I learned discovery.</p>
+            <p class="stop-win"><strong>Biggest win:</strong> in my final year I worked with our career planner and guided Marines one on one through their reenlistment decisions.</p>
+            <p>After the Marines: a service desk at Perspecta, promoted to Tier 2 within a year, and a merchant services territory where I ran discovery, proposals, objection handling, and the close on my own.</p>
           </div>
         </li>
-        <li class="stop rise">
+        <li class="stop">
           <div class="stop-when">2021 – Jun 2025</div>
           <div class="stop-body">
-            <h3>My first network engineering role.</h3>
+            <h3>Where I went deep.</h3>
             <p class="stop-role"><strong>Leidos</strong> · Senior Network Engineer, then Unified Communications Design Engineer</p>
             <p>Tier 3 engineering across hundreds of DoD locations: routing, DMVPN, ACI fabrics, ISE, and firewalls. Then design work on enterprise voice, turning customer requirements into CUCM and SIP trunk designs.</p>
             <p class="stop-win"><strong>Biggest win:</strong> DMVPN hub and spoke designs linking forward deployed and CONUS sites, and VoIP migrations delivered with zero downtime cutovers.</p>
           </div>
         </li>
-        <li class="stop rise">
+        <li class="stop">
           <div class="stop-when">Jun 2025 – Aug 2026</div>
           <div class="stop-body">
-            <h3>Senior Network Engineer.</h3>
-            <p class="stop-role"><strong>TekSynap</strong> · Marine Corps enterprise LAN, then the DLA WAN team</p>
-            <p>I started on the Marine Corps enterprise LAN, then moved to a WAN team covering multiple vendors and sites supporting IOEE on the Defense Logistics Agency contract, with discovery and leadership briefings across a 100+ site enterprise.</p>
-            <p class="stop-win"><strong>Biggest win:</strong> the DLA Pearl Harbor backbone. Every site circuit moved onto redundant 10 Gbps links in one overnight cutover, with zero user impact.</p>
+            <h3>Where I started leading.</h3>
+            <p class="stop-role"><strong>TekSynap</strong> · Senior Network Engineer, Marine Corps enterprise LAN, then the DLA&nbsp;WAN&nbsp;team</p>
+            <p>On the DLA WAN team I ran discovery across a 100+ site enterprise, wrote the change plans and cutover runbooks, and briefed DLA leadership after the 2026 projects in Hawaii and Japan.</p>
+            <p class="stop-win"><strong>Biggest win:</strong> architecting the ISE/TACACS+ migration that puts device logins across a 100+ site enterprise under centralized identity, the base for automation at scale.</p>
           </div>
         </li>
-        <li class="stop rise">
+        <li class="stop">
           <div class="stop-when">2026 – Present</div>
           <div class="stop-body">
             <h3>Where I am now.</h3>
-            <p class="stop-role"><strong>TekSynap</strong> · CSfC Senior Network Engineer &nbsp;+&nbsp; <strong>Independent</strong> · Systems &amp; Solutions Design Engineer</p>
-            <p>Two tracks at once. Commercial Solutions for Classified (CSfC) engineering for the U.S. Marine Corps and U.S. Navy, and custom solutions for businesses that need one engineer who can design, build, and run the whole thing.</p>
-            <p class="stop-win"><strong>Biggest win:</strong> the pep-tek.com revamp, directed through a gated build prompt with Lighthouse and click count acceptance criteria, on a storefront my partner and I host on our own DigitalOcean server.</p>
+            <p class="stop-role"><strong>TekSynap</strong> · CSfC Senior Network Engineer<br /><strong>Independent</strong> · Systems &amp; Solutions Design Engineer</p>
+            <p>Two tracks at once. Commercial Solutions for Classified (CSfC) engineering for the U.S.&nbsp;Marine Corps and U.S.&nbsp;Navy, and custom solutions for businesses that need one engineer who can design, build, and run the whole thing.</p>
+            <p class="stop-win"><strong>Biggest win:</strong> a home mental health nursing practice now takes inquiries online, through the intake form and backend I built for Divine Assisted Care with HIPAA in mind.</p>
+          </div>
+        </li>
+        <li class="stop stop-next">
+          <div class="stop-when">Next</div>
+          <div class="stop-body">
+            <h3>Your team.</h3>
+            <p>The next stop is your team’s hardest open problem.</p>
+            <p class="stop-cta"><a href="#contact" class="pill">Bring me a problem</a></p>
           </div>
         </li>
       </ol>
@@ -436,64 +411,70 @@
     </svg>
     <div class="wrap">
       <h2 class="night-title"><span class="soft">Certified.</span> Cleared.</h2>
-
-      <div class="certs swoosh-r">
-        <div class="cert"><span class="cert-abbr">TS</span><span class="cert-name">Active Top Secret clearance</span><span class="cert-meta">TS/SSBI initiated Jun 2025</span></div>
-        <div class="cert"><span class="cert-abbr">CCNP</span><span class="cert-name">Cisco CCNP Enterprise</span><span class="cert-meta">Jun 2025 – Jun 2028</span></div>
-        <div class="cert"><span class="cert-abbr">CORE</span><span class="cert-name">Cisco Specialist: Enterprise Core</span><span class="cert-meta">Sep 2024 – Sep 2027</span></div>
-        <div class="cert"><span class="cert-abbr">ADV</span><span class="cert-name">Cisco Specialist: Enterprise Advanced Infra</span><span class="cert-meta">Jun 2025 – Jun 2028</span></div>
-        <div class="cert"><span class="cert-abbr">CCNA</span><span class="cert-name">Cisco CCNA</span><span class="cert-meta">Sep 2021 – Sep 2027 · CSCO14048202</span></div>
-        <div class="cert"><span class="cert-abbr">CASP+</span><span class="cert-name">CompTIA SecurityX (CASP+) CAS-004, DoD 8140 IAT Level III</span><span class="cert-meta">Oct 2024 – Oct 2027</span></div>
-        <div class="cert"><span class="cert-abbr">A+</span><span class="cert-name">CompTIA A+ CE</span><span class="cert-meta">Oct 2024 – Oct 2027</span></div>
-        <div class="cert"><span class="cert-abbr">CCSA</span><span class="cert-name">Check Point CCSA R81</span><span class="cert-meta">Jul 2025 – Jul 2027</span></div>
-        <div class="cert"><span class="cert-abbr">AZ-900</span><span class="cert-name">Microsoft Azure Fundamentals</span><span class="cert-meta">Issued 2026</span></div>
-        <div class="cert"><span class="cert-abbr">ITIL</span><span class="cert-name">ITIL Foundation v4</span><span class="cert-meta">Issued Feb 2020</span></div>
-        <div class="cert"><span class="cert-abbr">CCIE</span><span class="cert-name">CCIE Enterprise Infrastructure</span><span class="cert-meta wip">In progress, active study track</span></div>
-        <div class="cert"><span class="cert-abbr">B.S.</span><span class="cert-name">Cyber Security, UMGC</span><span class="cert-meta">Dec 2026</span></div>
+      <p class="clearance-line">An active Top Secret clearance means a full federal background investigation.</p>
+      <div class="stats night-stats swoosh-l">
+        <div class="stat"><span class="stat-num">7</span><span class="stat-label">Years in enterprise IT</span></div>
+        <div class="stat"><span class="stat-num">100+</span><span class="stat-label">Locations supported</span></div>
+        <div class="stat"><span class="stat-num">9</span><span class="stat-label">Active certifications</span></div>
+        <div class="stat"><span class="stat-num">TS</span><span class="stat-label">Active Top&nbsp;Secret&nbsp;clearance</span></div>
       </div>
+      <ul class="certs swoosh-r" role="list">
+        <li class="cert"><span class="cert-abbr">CCNP</span><span class="cert-name">Cisco CCNP Enterprise</span><span class="cert-meta">Jun 2025 – Jun 2028</span></li>
+        <li class="cert"><span class="cert-abbr">CCIE</span><span class="cert-name">CCIE Enterprise Infrastructure</span><span class="cert-meta">In progress, active study track</span></li>
+        <li class="cert"><span class="cert-abbr">CORE</span><span class="cert-name">Cisco Specialist: Enterprise Core</span><span class="cert-meta">Sep 2024 – Sep 2027</span></li>
+        <li class="cert"><span class="cert-abbr">ADV</span><span class="cert-name">Cisco Specialist: Enterprise Advanced Infrastructure</span><span class="cert-meta">Jun 2025 – Jun 2028</span></li>
+        <li class="cert"><span class="cert-abbr">CCNA</span><span class="cert-name">Cisco CCNA</span><span class="cert-meta">Sep 2021 – Sep 2027</span></li>
+        <li class="cert"><span class="cert-abbr">CASP+</span><span class="cert-name">CompTIA SecurityX (CASP+) CAS&#8209;004, DoD 8570/8140 IAT Level III</span><span class="cert-meta">Oct 2024 – Oct 2027</span></li>
+        <li class="cert"><span class="cert-abbr">CCSA</span><span class="cert-name">Check Point CCSA R81</span><span class="cert-meta">Jul 2025 – Jul 2027</span></li>
+        <li class="cert"><span class="cert-abbr">AZ-900</span><span class="cert-name">Microsoft Azure Fundamentals</span><span class="cert-meta">Issued 2026</span></li>
+        <li class="cert"><span class="cert-abbr">A+</span><span class="cert-name">CompTIA A+ CE</span><span class="cert-meta">Oct 2024 – Oct 2027</span></li>
+        <li class="cert"><span class="cert-abbr">ITIL</span><span class="cert-name">ITIL 4 Foundation</span><span class="cert-meta">Issued Feb 2020</span></li>
+        <li class="cert"><span class="cert-abbr">B.S.</span><span class="cert-name">Cyber Security, UMGC</span><span class="cert-meta">Dec 2026</span></li>
+      </ul>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="block">
     <div class="wrap">
-      <header class="sec-head rise"><h2 class="headline">Let's talk.</h2><p class="headline-sub">Especially about what's stuck in your backlog.</p></header>
+      <header class="sec-head rise"><h2 class="headline">Let’s talk.</h2><p class="headline-sub">Especially about what’s stuck in your backlog.</p></header>
       <div class="contact">
 
         <div class="contact-copy swoosh-l">
           <p>
-            Hiring a solutions or systems engineer? Or need a project your team hasn't been able
-            to close out? Government or commercial, bring me in and I'll tell you plainly what it
-            will take.
+            Hiring a solutions or systems engineer? Have a project that’s stalled? Or running a business where the network, the website, or the busywork keeps
+            getting in the way? Send me the details and I’ll tell you plainly what it will take.
           </p>
           <div class="consult">
             <strong>Consulting</strong>
-            Infrastructure modernization, AI and automation strategy, or a stubborn problem that
-            keeps coming back. My team and I provide deep analysis, tool recommendations, and
-            the work itself, built around your environment.
+            Infrastructure modernization, automation and AI, or the stubborn problem that keeps
+            coming back. It starts with a short call and a written plan you approve. Then you get the
+            finished system: the cutover done, the audit that runs itself, the agent that sorts the
+            inbox, all documented so your team can run it.
           </div>
           <div class="direct">
             <a href="mailto:juanmvonvogler@gmail.com"><span class="direct-label">Email</span><span class="direct-value">juanmvonvogler@gmail.com</span></a>
-            <a href="tel:5712052907"><span class="direct-label">Phone</span><span class="direct-value">(571) 205-2907</span></a>
+            <a href="tel:+15712052907"><span class="direct-label">Phone</span><span class="direct-value">(571) 205-2907</span></a>
           </div>
         </div>
 
         <div class="form-card swoosh-r">
           <div class="form-title">Send a message</div>
+          <p class="form-note">I usually reply within 24 hours.</p>
           <form id="contact-form" action="https://formspree.io/f/mqeybwzd" method="POST">
             <div class="form-row">
               <div class="field">
                 <label for="cf-name">Full name</label>
-                <input id="cf-name" type="text" name="name" autocomplete="name" placeholder="John Smith" required />
+                <input id="cf-name" type="text" name="name" autocomplete="name" required />
               </div>
               <div class="field">
                 <label for="cf-email">Email</label>
-                <input id="cf-email" type="email" name="email" autocomplete="email" placeholder="john@company.com" required />
+                <input id="cf-email" type="email" name="email" autocomplete="email" required />
               </div>
             </div>
             <div class="field">
               <label for="cf-phone">Phone (optional)</label>
-              <input id="cf-phone" type="tel" name="phone" autocomplete="tel" placeholder="(555) 000-0000" />
+              <input id="cf-phone" type="tel" name="phone" autocomplete="tel" />
             </div>
             <div class="field">
               <label for="cf-message">What do you need?</label>
@@ -503,12 +484,13 @@
               <span class="spinner"></span>
               <span class="btn-label">Send message</span>
             </button>
+            <p class="form-error" id="form-error" role="alert" hidden>That didn’t go through. Try again, or email me at <a href="mailto:juanmvonvogler@gmail.com">juanmvonvogler@gmail.com</a>.</p>
           </form>
 
           <div class="form-success" id="form-success" role="status" aria-live="polite">
             <svg class="success-check" viewBox="0 0 24 24"><polyline points="4,12 9,17 20,6"></polyline></svg>
-            <div class="success-title">Message received</div>
-            <div class="success-msg">Thanks for reaching out. I'll get back to you as soon as I can, usually within 24 hours.</div>
+            <h3 class="success-title" tabindex="-1">Message received</h3>
+            <div class="success-msg">Thanks for reaching out. I’ll get back to you as soon as I can, usually within 24 hours.</div>
           </div>
         </div>
 
@@ -516,21 +498,29 @@
     </div>
   </section>
 
+  </main>
+
   <footer>
     <div class="wrap foot">
-      <span>© 2026 Juan Vonvogler</span>
-      <span class="foot-links">
-        <a href="capabilities.html">Capabilities</a>
-        <a href="projects.html">Projects</a>
-        <a href="ai.html">AI</a>
-        <a href="about.html">Who I Am</a>
-        <a href="track-record.html">Track Record</a>
-        <a href="mailto:juanmvonvogler@gmail.com">Email</a>
-      </span>
-      <span>Solutions/Systems Engineer · Active Top Secret · Woodbridge, VA</span>
+      <p class="foot-name">Juan Vonvogler</p>
+      <div class="foot-row">
+        <p class="foot-role"><span>Solutions/Systems Engineer</span><span class="foot-sep"> · </span><span>Active Top Secret</span><span class="foot-sep"> · </span><span>Woodbridge, VA</span></p>
+        <p class="foot-direct"><a href="mailto:juanmvonvogler@gmail.com">juanmvonvogler@gmail.com</a><a href="tel:+15712052907">(571) 205-2907</a></p>
+      </div>
+      <div class="foot-row foot-base">
+        <nav class="foot-links" aria-label="Pages">
+          <a href="capabilities.html">Capabilities</a>
+          <a href="projects.html">Projects</a>
+          <a href="ai.html">AI</a>
+          <a href="about.html">Who I Am</a>
+          <a href="track-record.html">Track Record</a>
+          <a href="#certifications">Credentials</a>
+        </nav>
+        <span>© 2026 Juan Vonvogler</span>
+      </div>
     </div>
   </footer>
 
-  <script src="site.js"></script>
+  <script src="site.js?v=20261110"></script>
 </body>
 </html>
