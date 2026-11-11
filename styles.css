@@ -874,13 +874,6 @@ body[data-page="404"] main { flex: 1; }
   #certifications .soft, .cert-name, .cert-meta, .clearance-line, .night-stats .stat-label { color: #424245 !important; }
 }
 
-/* The one number that is only Juan's: zero */
-.zero { display: grid; grid-template-columns: auto minmax(0, 27em); justify-content: start; align-items: end; column-gap: clamp(1.25rem, 3.5vw, 2.75rem); margin-top: clamp(3.5rem, 8vw, 5.5rem); }
-.zero-num { font-size: clamp(7rem, 20vw, 15rem); font-weight: 700; line-height: .8; letter-spacing: -0.06em; color: var(--ink); font-variant-numeric: lining-nums; }
-.zero-text { font-size: var(--fs-lead); line-height: 1.4; letter-spacing: -0.015em; color: var(--ink-2); padding-bottom: .15em; }
-.zero-text strong { display: block; color: var(--ink); font-weight: 600; }
-@media (max-width: 600px) { .zero { grid-template-columns: 1fr; row-gap: 1rem; } }
-
 /* Track record: the next stop is the reader's own problem */
 .stop-cta { margin-top: 1.25rem; }
 .stop-next .stop-when { color: var(--accent); }
@@ -1040,8 +1033,6 @@ button.peek-hint:focus-visible { outline-offset: -5px; border-radius: var(--r-ca
     width: calc(860 * var(--px));
     right: auto; left: calc((100vw - var(--maxw)) / 2 + var(--gutter) + 340 * var(--px));
   }
-  /* The zero eases down as the window widens */
-  .zero-num { font-size: clamp(200px, calc(240px - (100vw - 1440px) * .06), 240px); }
 
   /* Track record roadmap: the date column and the track follow the scale; nothing else about it moves */
   .stop { grid-template-columns: calc(160 * var(--px)) minmax(0, 1fr); column-gap: calc(72 * var(--px)); }
@@ -1100,12 +1091,6 @@ button.peek-hint:focus-visible { outline-offset: -5px; border-radius: var(--r-ca
 
 /* 2100: the wide tier */
 @media (min-width: 2100px) {
-  /* Approach: three steps, then the number they lead to */
-  #approach .wrap { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); column-gap: calc(3 * var(--grid-gap)); }
-  #approach .sec-head { grid-column: 1 / -1; }
-  #approach .zero { grid-column: 2; grid-template-columns: minmax(0, 1fr); row-gap: 1.5rem; margin-top: 0; align-self: end; }
-  #approach .zero-num { font-weight: 600; }
-
   /* Projects: four tiles in one row; the client feature and the text card share a row */
   .built-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .clients:has(.client-feature) { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
