@@ -988,14 +988,15 @@ button.peek-hint:focus-visible { outline-offset: -5px; border-radius: var(--r-ca
 :root:not([data-theme="dark"]) nav.solid { background: var(--white); }
 
 /* ==== Wide screens (begin) ==== */
-/* Above 1440 the page keeps its shape and uses the window. The side margins stay at the 220px they are
-   at 1440, so every extra pixel goes to the content. Type and spacing ride one scaled pixel (--px, 1 at
-   1440 to 1.3 at 3440, held back by short windows), and grids take more columns as the room appears. */
+/* Above 1440 the page keeps its shape and uses the window. The side margins start at the 220px they are
+   at 1440 and open a little as the window grows (about 340px at 3440). Type and spacing ride one scaled
+   pixel (--px, 1 at 1440 to 1.15 at 3440, held back by short windows), and grids take more columns as
+   the room appears. */
 @media (min-width: 1441px) {
   :root {
-    --px: clamp(1px, min(calc(1px + (100vw - 1440px) * .00015), calc(100vh / 900)), 1.3px);
+    --px: clamp(1px, min(calc(1px + (100vw - 1440px) * .000075), calc(100vh / 900)), 1.15px);
     --gutter: 40px;
-    --maxw: min(calc(100vw - 360px), 3480px);
+    --maxw: min(calc(100vw - 360px - (100vw - 1440px) * .12), 3480px);
     --nav-h: calc(52 * var(--px));
     --fs-small: calc(13 * var(--px));
     --fs-meta: calc(15 * var(--px));
@@ -1034,12 +1035,13 @@ button.peek-hint:focus-visible { outline-offset: -5px; border-radius: var(--r-ca
   .job, .who, .detail, .about-intro { grid-template-columns: minmax(0, var(--side)) minmax(0, 1fr); }
   .client-wide .client-body { grid-template-columns: minmax(0, var(--side)) minmax(0, 1fr); }
 
-  /* Hero: the sphere grows with the window and keeps its centre where it is at 1440 (68.75% across) */
+  /* Hero: the sphere stays behind the name, where it sits at 1440, and grows only with the type */
   #hero-canvas {
-    --hero-w: min(calc(860px + (100vw - 1440px) * .42), max(860px, 96vh));
-    width: var(--hero-w);
-    right: calc(31.25vw - var(--hero-w) / 2);
+    width: calc(860 * var(--px));
+    right: auto; left: calc((100vw - var(--maxw)) / 2 + var(--gutter) + 340 * var(--px));
   }
+  /* The zero eases down as the window widens */
+  .zero-num { font-size: clamp(200px, calc(240px - (100vw - 1440px) * .06), 240px); }
 
   /* Track record roadmap: the date column and the track follow the scale; nothing else about it moves */
   .stop { grid-template-columns: calc(160 * var(--px)) minmax(0, 1fr); column-gap: calc(72 * var(--px)); }
@@ -1102,6 +1104,7 @@ button.peek-hint:focus-visible { outline-offset: -5px; border-radius: var(--r-ca
   #approach .wrap { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); column-gap: calc(3 * var(--grid-gap)); }
   #approach .sec-head { grid-column: 1 / -1; }
   #approach .zero { grid-column: 2; grid-template-columns: minmax(0, 1fr); row-gap: 1.5rem; margin-top: 0; align-self: end; }
+  #approach .zero-num { font-weight: 600; }
 
   /* Projects: four tiles in one row; the client feature and the text card share a row */
   .built-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }

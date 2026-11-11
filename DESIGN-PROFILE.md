@@ -50,7 +50,7 @@ Isometric illustrations from Higgsfield (`gpt_image_2_5`, high, 3:2) on light gr
 
 ## Wide screens
 
-Above 1440 the layout uses the window. Side margins stay at the 220px they are at 1440, type and spacing ride one scaled pixel (1 at 1440, 1.3 at 3440, held back on short windows), grids take more columns as room appears, and running text stays under about 80 characters a line. Past roughly 3840 the page caps and centres.
+Above 1440 the layout uses the window and stays calm. Side margins start at the 220px they are at 1440 and open slowly (about 340px at 3440), type and spacing ride one scaled pixel (1 at 1440, 1.15 at 3440, held back on short windows), grids take more columns as room appears, and running text stays under about 80 characters a line. The hero sphere stays behind the name, where it sits at 1440, and grows only with the type. The zero in the Approach section eases down to 200px and a lighter weight as the window widens. Past roughly 4200 the page caps and centres.
 
 All of it lives in one block at the end of styles.css, between the `Wide screens (begin)` and `Wide screens (end)` comments. Every rule in that block sits inside a `min-width` query of 1441px or more, so 1440 and below render exactly as they did without it. New wide rules go inside that block and nowhere else.
 
