@@ -986,6 +986,8 @@ button.peek-hint:focus-visible { outline-offset: -5px; border-radius: var(--r-ca
 }
 @media (pointer: coarse) { .jump a { min-height: 44px; } }
 @media (forced-colors: active) { .js .cap-name::before { forced-color-adjust: none; background: CanvasText; } }
+/* Over the last strip of the dark credentials section the bar goes opaque, so it never greys */
+:root:not([data-theme="dark"]) nav.solid { background: var(--white); }
 
 /* ==== Wide screens (begin) ==== */
 /* Above 1440 the page keeps its shape and uses the window. The side margins stay at the 220px they are

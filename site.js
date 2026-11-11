@@ -328,7 +328,9 @@
   function night(vh, r) {
     const n = clamp((vh - r.top) / (vh * 0.6));
     certs.style.setProperty('--n', n.toFixed(3));
-    nav.classList.toggle('dark', n > 0.5 && r.top < navH && r.bottom > navH);
+    const tail = r.bottom > 0 && r.bottom <= navH + 1;
+    nav.classList.toggle('dark', n > 0.5 && r.top < navH && r.bottom > navH + 1);
+    nav.classList.toggle('solid', tail);
   }
 
   // Track record roadmap: the track fills toward the reading line, a packet rides the tip of the fill,
