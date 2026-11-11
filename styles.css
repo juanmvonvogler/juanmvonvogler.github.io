@@ -922,7 +922,7 @@ nav.dark :focus-visible { outline-color: var(--accent-on-dark); }
   .block, .page-intro { padding-top: 1.5rem; padding-bottom: 1.5rem; }
   .step, .built-tile, .client, .stop, .detail, .job, .cert, .layer, .skill-group, .cap { break-inside: avoid; }
   :root[data-theme="dark"] :is(.step img, .built-tile img, .detail-shot, .topology-open img) { filter: none !important; }
-  .hero-cta .pill, .topology .pill, .page-actions .pill, .motion-toggle { display: none !important; }
+  .hero-cta .pill, .topology .pill, .page-actions .pill { display: none !important; }
 }
 
 /* Tablets (601 to 1100px): the sphere steps back behind the copy, the steps become short rows */
@@ -961,9 +961,7 @@ button.peek-hint::before { content: "+"; content: "+" / ""; }
 button.peek-hint:focus-visible { outline-offset: -5px; border-radius: var(--r-card); }
 .has-peek.open .peek-hint:focus-visible { outline-color: var(--accent-on-dark); }
 .pipeline li:not(:last-child)::after { content: "\203A"; content: "\203A" / ""; }
-.motion-toggle { margin-left: auto; min-height: 44px; padding: 0 .25rem; border: 0; background: none; font: inherit; font-size: var(--fs-small); color: var(--gray); cursor: pointer; }
-@media (hover: hover) { .motion-toggle:hover { color: var(--ink); } }
-@media (prefers-reduced-motion: reduce) { .motion-toggle { display: none; } .client:has(.card-link):hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .client:has(.card-link):hover { transform: none; } }
 :root[data-theme="dark"] .viewer-stage { filter: brightness(.84) contrast(1.04); }
 @media (min-width: 901px) { .form-row { grid-template-columns: 1fr; gap: 0; } }
 @media (min-width: 721px) and (max-width: 1000px) { .detail, .job { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); column-gap: 2.5rem; } }

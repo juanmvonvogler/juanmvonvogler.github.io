@@ -19,7 +19,7 @@ Live in `styles.css` on `:root`, with dark values under `[data-theme="dark"]`.
 - Motion timings: press 140ms, hover 200ms, UI 300ms, reveals 600ms (`--t-*` tokens), one easing curve (`--ease`).
 - Edges: cards 14px, tiles 10px, buttons 12px, flat tone step with no borders
 - Hover: lift and tilt on client cards that link somewhere, blur only glow plus a hairline edge trace on buttons (hover only on real pointers)
-- Signature motion: packets hop along the hero sphere's links and light the route behind them; hovering "Bring me a problem" routes every packet to the node nearest the button. A packet rides the tip of the roadmap fill and each stop pings once as it is reached. A quiet "Pause motion" control in the hero stops the sphere (WCAG 2.2.2); it hides under reduced motion, where nothing loops anyway.
+- Signature motion: packets hop along the hero sphere's links and light the route behind them; hovering "Bring me a problem" routes every packet to the node nearest the button. A packet rides the tip of the roadmap fill and each stop pings once as it is reached. Under reduced motion nothing loops; the sphere draws one still frame.
 - Light by default; dark only through the toggle. In dark, the illustrations invert into light line drawings on the tile tone with the green turned back to the dark accent, the topology only dims, and the credentials section lifts to the tile tone so the night still arrives.
 
 ## Words

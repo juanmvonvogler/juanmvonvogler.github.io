@@ -254,8 +254,6 @@
     let raf = 0, last = 0, onScreen = true, paused = false;
     const loop = now => { const dt = Math.min(3, last ? (now - last) / 16.667 : 1); last = now; frame(dt); raf = requestAnimationFrame(loop); };
     const run = () => { cancelAnimationFrame(raf); raf = 0; last = 0; if (onScreen && !reduce && !paused && !document.hidden) raf = requestAnimationFrame(loop); };
-    const mt = document.querySelector('.motion-toggle');
-    if (mt) mt.addEventListener('click', () => { paused = !paused; mt.textContent = paused ? 'Play motion' : 'Pause motion'; run(); });
     const home = document.getElementById('home');
     if (window.IntersectionObserver) new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; run(); }).observe(home);
     document.addEventListener('visibilitychange', run);
